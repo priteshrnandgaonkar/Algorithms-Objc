@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA0DC0AA1DA670C5008E5FA3 /* LinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0A91DA670C5008E5FA3 /* LinkedList.m */; };
+		CA0DC0AD1DA67AC6008E5FA3 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0AC1DA67AC6008E5FA3 /* Node.m */; };
+		CA0DC0B11DA689FC008E5FA3 /* LinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0B01DA689FC008E5FA3 /* LinkedListTests.m */; };
+		CA0DC0B41DA6A272008E5FA3 /* SentinelLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0B31DA6A272008E5FA3 /* SentinelLinkedList.m */; };
+		CA0DC0B81DA9512D008E5FA3 /* CareerCupAlgorithms.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0B71DA9512D008E5FA3 /* CareerCupAlgorithms.m */; };
+		CA6796E61DA506A500B09B61 /* Arrays-Algorithms.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6796E51DA506A500B09B61 /* Arrays-Algorithms.m */; };
 		CAE21BC81D9E6656004E5763 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21BC71D9E6656004E5763 /* main.m */; };
 		CAE21BCB1D9E6656004E5763 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21BCA1D9E6656004E5763 /* AppDelegate.m */; };
 		CAE21BCE1D9E6656004E5763 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21BCD1D9E6656004E5763 /* ViewController.m */; };
@@ -15,6 +21,9 @@
 		CAE21BD61D9E6656004E5763 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAE21BD41D9E6656004E5763 /* LaunchScreen.storyboard */; };
 		CAE21BE11D9E6657004E5763 /* AlgorithmsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21BE01D9E6657004E5763 /* AlgorithmsTests.m */; };
 		CAE21BEC1D9E6657004E5763 /* AlgorithmsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21BEB1D9E6657004E5763 /* AlgorithmsUITests.m */; };
+		CAE21BFB1D9E66A7004E5763 /* Sorting.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21BFA1D9E66A7004E5763 /* Sorting.m */; };
+		CAE21C001DA0C35E004E5763 /* Heap.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21BFF1DA0C35E004E5763 /* Heap.m */; };
+		CAE21C041DA10CAB004E5763 /* PriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21C031DA10CAB004E5763 /* PriorityQueue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +44,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA0DC0A81DA670C5008E5FA3 /* LinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinkedList.h; path = Algorithms/LinkedList.h; sourceTree = "<group>"; };
+		CA0DC0A91DA670C5008E5FA3 /* LinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinkedList.m; path = Algorithms/LinkedList.m; sourceTree = "<group>"; };
+		CA0DC0AB1DA67AC6008E5FA3 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		CA0DC0AC1DA67AC6008E5FA3 /* Node.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
+		CA0DC0B01DA689FC008E5FA3 /* LinkedListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedListTests.m; sourceTree = "<group>"; };
+		CA0DC0B21DA6A272008E5FA3 /* SentinelLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SentinelLinkedList.h; sourceTree = "<group>"; };
+		CA0DC0B31DA6A272008E5FA3 /* SentinelLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SentinelLinkedList.m; sourceTree = "<group>"; };
+		CA0DC0B61DA9512D008E5FA3 /* CareerCupAlgorithms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CareerCupAlgorithms.h; path = CareerCup/CareerCupAlgorithms.h; sourceTree = "<group>"; };
+		CA0DC0B71DA9512D008E5FA3 /* CareerCupAlgorithms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CareerCupAlgorithms.m; path = CareerCup/CareerCupAlgorithms.m; sourceTree = "<group>"; };
+		CA6796E41DA506A500B09B61 /* Arrays-Algorithms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Arrays-Algorithms.h"; sourceTree = "<group>"; };
+		CA6796E51DA506A500B09B61 /* Arrays-Algorithms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Arrays-Algorithms.m"; sourceTree = "<group>"; };
 		CAE21BC31D9E6656004E5763 /* Algorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Algorithms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE21BC71D9E6656004E5763 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CAE21BC91D9E6656004E5763 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +71,14 @@
 		CAE21BE71D9E6657004E5763 /* AlgorithmsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgorithmsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE21BEB1D9E6657004E5763 /* AlgorithmsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlgorithmsUITests.m; sourceTree = "<group>"; };
 		CAE21BED1D9E6657004E5763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAE21BF91D9E66A7004E5763 /* Sorting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sorting.h; sourceTree = "<group>"; };
+		CAE21BFA1D9E66A7004E5763 /* Sorting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sorting.m; sourceTree = "<group>"; };
+		CAE21BFE1DA0C35E004E5763 /* Heap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Heap.h; sourceTree = "<group>"; };
+		CAE21BFF1DA0C35E004E5763 /* Heap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Heap.m; sourceTree = "<group>"; };
+		CAE21C011DA0D863004E5763 /* Algorithms-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Algorithms-Prefix.pch"; sourceTree = "<group>"; };
+		CAE21C021DA10CAB004E5763 /* PriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriorityQueue.h; sourceTree = "<group>"; };
+		CAE21C031DA10CAB004E5763 /* PriorityQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriorityQueue.m; sourceTree = "<group>"; };
+		CAE21C051DA2E5C3004E5763 /* Tips.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tips.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +106,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA0DC0A71DA6708C008E5FA3 /* LinkList */ = {
+			isa = PBXGroup;
+			children = (
+				CA0DC0A81DA670C5008E5FA3 /* LinkedList.h */,
+				CA0DC0A91DA670C5008E5FA3 /* LinkedList.m */,
+				CA0DC0AB1DA67AC6008E5FA3 /* Node.h */,
+				CA0DC0AC1DA67AC6008E5FA3 /* Node.m */,
+				CA0DC0B21DA6A272008E5FA3 /* SentinelLinkedList.h */,
+				CA0DC0B31DA6A272008E5FA3 /* SentinelLinkedList.m */,
+			);
+			name = LinkList;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CA0DC0B51DA950C1008E5FA3 /* CareerCup */ = {
+			isa = PBXGroup;
+			children = (
+				CA0DC0B61DA9512D008E5FA3 /* CareerCupAlgorithms.h */,
+				CA0DC0B71DA9512D008E5FA3 /* CareerCupAlgorithms.m */,
+			);
+			name = CareerCup;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CA6796E31DA5067000B09B61 /* Arrays */ = {
+			isa = PBXGroup;
+			children = (
+				CA6796E41DA506A500B09B61 /* Arrays-Algorithms.h */,
+				CA6796E51DA506A500B09B61 /* Arrays-Algorithms.m */,
+			);
+			name = Arrays;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		CAE21BBA1D9E6656004E5763 = {
 			isa = PBXGroup;
 			children = (
@@ -105,11 +167,18 @@
 				CAE21BCA1D9E6656004E5763 /* AppDelegate.m */,
 				CAE21BCC1D9E6656004E5763 /* ViewController.h */,
 				CAE21BCD1D9E6656004E5763 /* ViewController.m */,
+				CAE21C011DA0D863004E5763 /* Algorithms-Prefix.pch */,
 				CAE21BCF1D9E6656004E5763 /* Main.storyboard */,
 				CAE21BD21D9E6656004E5763 /* Assets.xcassets */,
 				CAE21BD41D9E6656004E5763 /* LaunchScreen.storyboard */,
 				CAE21BD71D9E6656004E5763 /* Info.plist */,
 				CAE21BC61D9E6656004E5763 /* Supporting Files */,
+				CA0DC0A71DA6708C008E5FA3 /* LinkList */,
+				CA0DC0B51DA950C1008E5FA3 /* CareerCup */,
+				CA6796E31DA5067000B09B61 /* Arrays */,
+				CAE21BFD1DA0C33A004E5763 /* Heaps */,
+				CAE21BFC1D9FDADA004E5763 /* Sorting */,
+				CAE21C051DA2E5C3004E5763 /* Tips.h */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -127,6 +196,7 @@
 			children = (
 				CAE21BE01D9E6657004E5763 /* AlgorithmsTests.m */,
 				CAE21BE21D9E6657004E5763 /* Info.plist */,
+				CA0DC0B01DA689FC008E5FA3 /* LinkedListTests.m */,
 			);
 			path = AlgorithmsTests;
 			sourceTree = "<group>";
@@ -138,6 +208,26 @@
 				CAE21BED1D9E6657004E5763 /* Info.plist */,
 			);
 			path = AlgorithmsUITests;
+			sourceTree = "<group>";
+		};
+		CAE21BFC1D9FDADA004E5763 /* Sorting */ = {
+			isa = PBXGroup;
+			children = (
+				CAE21BF91D9E66A7004E5763 /* Sorting.h */,
+				CAE21BFA1D9E66A7004E5763 /* Sorting.m */,
+			);
+			name = Sorting;
+			sourceTree = "<group>";
+		};
+		CAE21BFD1DA0C33A004E5763 /* Heaps */ = {
+			isa = PBXGroup;
+			children = (
+				CAE21BFE1DA0C35E004E5763 /* Heap.h */,
+				CAE21BFF1DA0C35E004E5763 /* Heap.m */,
+				CAE21C021DA10CAB004E5763 /* PriorityQueue.h */,
+				CAE21C031DA10CAB004E5763 /* PriorityQueue.m */,
+			);
+			name = Heaps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,9 +363,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAE21C001DA0C35E004E5763 /* Heap.m in Sources */,
+				CAE21C041DA10CAB004E5763 /* PriorityQueue.m in Sources */,
+				CA0DC0B81DA9512D008E5FA3 /* CareerCupAlgorithms.m in Sources */,
+				CA0DC0AA1DA670C5008E5FA3 /* LinkedList.m in Sources */,
 				CAE21BCE1D9E6656004E5763 /* ViewController.m in Sources */,
+				CA0DC0B41DA6A272008E5FA3 /* SentinelLinkedList.m in Sources */,
 				CAE21BCB1D9E6656004E5763 /* AppDelegate.m in Sources */,
+				CA0DC0AD1DA67AC6008E5FA3 /* Node.m in Sources */,
+				CAE21BFB1D9E66A7004E5763 /* Sorting.m in Sources */,
 				CAE21BC81D9E6656004E5763 /* main.m in Sources */,
+				CA6796E61DA506A500B09B61 /* Arrays-Algorithms.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA0DC0B11DA689FC008E5FA3 /* LinkedListTests.m in Sources */,
 				CAE21BE11D9E6657004E5763 /* AlgorithmsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +459,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Algorithms-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -406,6 +507,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -507,6 +609,7 @@
 				CAE21BF21D9E6657004E5763 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CAE21BF31D9E6657004E5763 /* Build configuration list for PBXNativeTarget "AlgorithmsTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +618,7 @@
 				CAE21BF51D9E6657004E5763 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CAE21BF61D9E6657004E5763 /* Build configuration list for PBXNativeTarget "AlgorithmsUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +627,7 @@
 				CAE21BF81D9E6657004E5763 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
