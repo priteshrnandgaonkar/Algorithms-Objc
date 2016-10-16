@@ -12,6 +12,7 @@
 #import "PriorityQueue.h"
 #import "Arrays-Algorithms.h"
 #import "CareerCupAlgorithms.h"
+#import "Map.h"
 
 @interface ViewController ()
 
@@ -101,6 +102,33 @@
    BOOL foundSubSequence = [CareerCupAlgorithms doesThereExistSubsequenceInArray:@[@(19), @(3), @(5), @(18)] withSum:18];
     
     Log(@"Found Sub sequence %d", foundSubSequence);
+    
+    
+    
+    //Map
+    MapNode *root = [[MapNode alloc] initWithValue:@(10) parent:nil left:nil right:nil];
+    Map *map = [[Map alloc] initWithRoot:root];
+    [map insertNumber:@(14)];
+    [map insertNumber:@(5)];
+    [map insertNumber:@(8)];
+    [map insertNumber:@(13)];
+    [map insertNumber:@(17)];
+    [map insertNumber:@(8)];
+    [map insertNumber:@(1)];
+    [map insertNumber:@(9)];
+    [map insertNumber:@(2)];
+    [map insertNumber:@(9)];
+    [map insertNumber:@(18)];
+    [map insertNumber:@(11)];
+    [map inorderTreeTraversal];
+    Log(@"MINIMUM MAP: %@", [map minimum].value);
+    Log(@"MAXIMUM MAP: %@", [map maximum].value);
+    Log(@"BINARY SEARCH: %@", [map binarySearchNumber:@(11)].value);
+    Log(@"PREDECESSOR FOR : %@", [map predecessorForNode:[map binarySearchNumber:@(10)]].value);
+    Log(@"SUCCESSOR FOR : %@", [map successorForNode:[map binarySearchNumber:@(10)]].value);
+    [map deleteNode:[map binarySearchNumber:@(14)]];
+    [map inorderTreeTraversal];
+    
 }
 
 

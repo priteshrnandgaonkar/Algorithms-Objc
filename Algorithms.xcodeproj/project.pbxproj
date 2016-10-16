@@ -12,6 +12,8 @@
 		CA0DC0B11DA689FC008E5FA3 /* LinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0B01DA689FC008E5FA3 /* LinkedListTests.m */; };
 		CA0DC0B41DA6A272008E5FA3 /* SentinelLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0B31DA6A272008E5FA3 /* SentinelLinkedList.m */; };
 		CA0DC0B81DA9512D008E5FA3 /* CareerCupAlgorithms.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0B71DA9512D008E5FA3 /* CareerCupAlgorithms.m */; };
+		CA2A6ADE1DB0EC400025CC8F /* MapNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CA2A6ADD1DB0EC400025CC8F /* MapNode.m */; };
+		CA2A6AE11DB0EE690025CC8F /* MapAlgorithms.m in Sources */ = {isa = PBXBuildFile; fileRef = CA2A6AE01DB0EE690025CC8F /* MapAlgorithms.m */; };
 		CA6796E61DA506A500B09B61 /* Arrays-Algorithms.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6796E51DA506A500B09B61 /* Arrays-Algorithms.m */; };
 		CAE21BC81D9E6656004E5763 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21BC71D9E6656004E5763 /* main.m */; };
 		CAE21BCB1D9E6656004E5763 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21BCA1D9E6656004E5763 /* AppDelegate.m */; };
@@ -24,6 +26,7 @@
 		CAE21BFB1D9E66A7004E5763 /* Sorting.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21BFA1D9E66A7004E5763 /* Sorting.m */; };
 		CAE21C001DA0C35E004E5763 /* Heap.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21BFF1DA0C35E004E5763 /* Heap.m */; };
 		CAE21C041DA10CAB004E5763 /* PriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21C031DA10CAB004E5763 /* PriorityQueue.m */; };
+		CAF80F871DB36219000001A4 /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF80F861DB36219000001A4 /* Map.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,10 @@
 		CA0DC0B31DA6A272008E5FA3 /* SentinelLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SentinelLinkedList.m; sourceTree = "<group>"; };
 		CA0DC0B61DA9512D008E5FA3 /* CareerCupAlgorithms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CareerCupAlgorithms.h; path = CareerCup/CareerCupAlgorithms.h; sourceTree = "<group>"; };
 		CA0DC0B71DA9512D008E5FA3 /* CareerCupAlgorithms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CareerCupAlgorithms.m; path = CareerCup/CareerCupAlgorithms.m; sourceTree = "<group>"; };
+		CA2A6ADC1DB0EC400025CC8F /* MapNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNode.h; sourceTree = "<group>"; };
+		CA2A6ADD1DB0EC400025CC8F /* MapNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapNode.m; sourceTree = "<group>"; };
+		CA2A6ADF1DB0EE690025CC8F /* MapAlgorithms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAlgorithms.h; sourceTree = "<group>"; };
+		CA2A6AE01DB0EE690025CC8F /* MapAlgorithms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAlgorithms.m; sourceTree = "<group>"; };
 		CA6796E41DA506A500B09B61 /* Arrays-Algorithms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Arrays-Algorithms.h"; sourceTree = "<group>"; };
 		CA6796E51DA506A500B09B61 /* Arrays-Algorithms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Arrays-Algorithms.m"; sourceTree = "<group>"; };
 		CAE21BC31D9E6656004E5763 /* Algorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Algorithms.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +86,8 @@
 		CAE21C021DA10CAB004E5763 /* PriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriorityQueue.h; sourceTree = "<group>"; };
 		CAE21C031DA10CAB004E5763 /* PriorityQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriorityQueue.m; sourceTree = "<group>"; };
 		CAE21C051DA2E5C3004E5763 /* Tips.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tips.h; sourceTree = "<group>"; };
+		CAF80F851DB36219000001A4 /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
+		CAF80F861DB36219000001A4 /* Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +139,19 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		CA2A6ADB1DB0EC170025CC8F /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				CA2A6ADC1DB0EC400025CC8F /* MapNode.h */,
+				CA2A6ADD1DB0EC400025CC8F /* MapNode.m */,
+				CA2A6ADF1DB0EE690025CC8F /* MapAlgorithms.h */,
+				CA2A6AE01DB0EE690025CC8F /* MapAlgorithms.m */,
+				CAF80F851DB36219000001A4 /* Map.h */,
+				CAF80F861DB36219000001A4 /* Map.m */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
 		CA6796E31DA5067000B09B61 /* Arrays */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +195,7 @@
 				CAE21BD41D9E6656004E5763 /* LaunchScreen.storyboard */,
 				CAE21BD71D9E6656004E5763 /* Info.plist */,
 				CAE21BC61D9E6656004E5763 /* Supporting Files */,
+				CA2A6ADB1DB0EC170025CC8F /* Maps */,
 				CA0DC0A71DA6708C008E5FA3 /* LinkList */,
 				CA0DC0B51DA950C1008E5FA3 /* CareerCup */,
 				CA6796E31DA5067000B09B61 /* Arrays */,
@@ -364,11 +387,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE21C001DA0C35E004E5763 /* Heap.m in Sources */,
+				CA2A6AE11DB0EE690025CC8F /* MapAlgorithms.m in Sources */,
 				CAE21C041DA10CAB004E5763 /* PriorityQueue.m in Sources */,
 				CA0DC0B81DA9512D008E5FA3 /* CareerCupAlgorithms.m in Sources */,
 				CA0DC0AA1DA670C5008E5FA3 /* LinkedList.m in Sources */,
+				CA2A6ADE1DB0EC400025CC8F /* MapNode.m in Sources */,
 				CAE21BCE1D9E6656004E5763 /* ViewController.m in Sources */,
 				CA0DC0B41DA6A272008E5FA3 /* SentinelLinkedList.m in Sources */,
+				CAF80F871DB36219000001A4 /* Map.m in Sources */,
 				CAE21BCB1D9E6656004E5763 /* AppDelegate.m in Sources */,
 				CA0DC0AD1DA67AC6008E5FA3 /* Node.m in Sources */,
 				CAE21BFB1D9E66A7004E5763 /* Sorting.m in Sources */,
