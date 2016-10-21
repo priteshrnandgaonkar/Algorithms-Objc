@@ -104,7 +104,6 @@
     Log(@"Found Sub sequence %d", foundSubSequence);
     
     
-    
     //Map
     MapNode *root = [[MapNode alloc] initWithValue:@(10) parent:nil left:nil right:nil];
     Map *map = [[Map alloc] initWithRoot:root];
