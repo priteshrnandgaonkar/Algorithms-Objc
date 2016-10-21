@@ -128,6 +128,15 @@
     [map deleteNode:[map binarySearchNumber:@(14)]];
     [map inorderTreeTraversal];
     
+    Log(@"DOUBLE DFS TRAVERSAL");
+    NSArray *doubleDFSArray = @[@[@(NO), @(YES), @(NO), @(NO), @(NO), @(YES), @(YES)],
+                                @[@(YES), @(NO), @(YES), @(NO), @(NO), @(YES), @(NO)],
+                                @[@(NO), @(YES), @(NO), @(YES), @(NO), @(NO), @(NO)],
+                                @[@(NO), @(NO), @(YES), @(NO), @(YES), @(NO), @(NO)],
+                                @[@(NO), @(NO), @(NO), @(YES), @(NO), @(YES), @(NO)],
+                                @[@(YES), @(YES), @(NO), @(NO), @(YES), @(NO), @(NO)],
+                                @[@(YES), @(NO), @(NO), @(NO), @(NO), @(NO), @(NO)]];
+    [CareerCupAlgorithms doubleGraphTraversalWithAdjacencyMatrix:doubleDFSArray root:0];
 }
 
 

@@ -74,4 +74,37 @@
     return sum == 0;
 }
 
++ (void)doubleGraphTraversalWithAdjacencyMatrix:(NSArray<NSArray<NSNumber *> *> *)mat root:(NSUInteger)i {
+    
+    NSMutableArray<NSNumber *> *visited = @[].mutableCopy;
+    NSMutableArray<NSNumber *> *depth = @[].mutableCopy;
+
+    for(NSUInteger j = 0; j < mat.count; ++j) {
+        visited[j] = @(NO);
+        depth[j] = @(0);
+    }
+    
+    [[self class] doubleGraphTraversalWithAdjacencyMatrix:mat root:i visited:visited depth:depth];
+}
+
++ (void)doubleGraphTraversalWithAdjacencyMatrix:(NSArray<NSArray<NSNumber *> *> *)mat root:(NSUInteger)i visited:(NSMutableArray<NSNumber *> *)visited depth:(NSMutableArray<NSNumber *> *)depth {
+    Log(@"%lu", i);
+
+    visited[i] = @(YES);
+    
+    for(NSUInteger idx = 0; idx < mat.count; ++idx) {
+        
+        if([mat[i][idx] isEqualToNumber:@(YES)] && !(visited[idx].boolValue)) {
+            depth[idx] = @(depth[i].integerValue + 1);
+
+            [[self class] doubleGraphTraversalWithAdjacencyMatrix:mat root:idx visited:visited depth:depth];
+            Log(@"%lu", i);
+        }
+        else if(depth[idx] > depth[i] && [mat[i][idx] isEqualToNumber:@(YES)]) {
+            Log(@"%lu", idx);
+            Log(@"%lu", i);
+        }
+    }
+}
+
 @end
