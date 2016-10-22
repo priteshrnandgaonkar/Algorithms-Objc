@@ -27,6 +27,9 @@
 		CAE21C001DA0C35E004E5763 /* Heap.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21BFF1DA0C35E004E5763 /* Heap.m */; };
 		CAE21C041DA10CAB004E5763 /* PriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21C031DA10CAB004E5763 /* PriorityQueue.m */; };
 		CAF80F871DB36219000001A4 /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF80F861DB36219000001A4 /* Map.m */; };
+		CAFF79931DBB4BE6002CFAD3 /* CCMutableNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFF79921DBB4BE6002CFAD3 /* CCMutableNumber.m */; };
+		CAFF79971DBB5170002CFAD3 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFF79961DBB5170002CFAD3 /* Stack.m */; };
+		CAFF799B1DBB653A002CFAD3 /* GraphAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFF799A1DBB653A002CFAD3 /* GraphAlgorithm.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,12 @@
 		CAE21C051DA2E5C3004E5763 /* Tips.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tips.h; sourceTree = "<group>"; };
 		CAF80F851DB36219000001A4 /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
 		CAF80F861DB36219000001A4 /* Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map.m; sourceTree = "<group>"; };
+		CAFF79911DBB4BE6002CFAD3 /* CCMutableNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMutableNumber.h; sourceTree = "<group>"; };
+		CAFF79921DBB4BE6002CFAD3 /* CCMutableNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMutableNumber.m; sourceTree = "<group>"; };
+		CAFF79951DBB5170002CFAD3 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		CAFF79961DBB5170002CFAD3 /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
+		CAFF79991DBB653A002CFAD3 /* GraphAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphAlgorithm.h; path = Graph/GraphAlgorithm.h; sourceTree = "<group>"; };
+		CAFF799A1DBB653A002CFAD3 /* GraphAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphAlgorithm.m; path = Graph/GraphAlgorithm.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +143,8 @@
 			children = (
 				CA0DC0B61DA9512D008E5FA3 /* CareerCupAlgorithms.h */,
 				CA0DC0B71DA9512D008E5FA3 /* CareerCupAlgorithms.m */,
+				CAFF79911DBB4BE6002CFAD3 /* CCMutableNumber.h */,
+				CAFF79921DBB4BE6002CFAD3 /* CCMutableNumber.m */,
 			);
 			name = CareerCup;
 			path = ..;
@@ -196,7 +207,9 @@
 				CAE21BD71D9E6656004E5763 /* Info.plist */,
 				CAE21BC61D9E6656004E5763 /* Supporting Files */,
 				CA2A6ADB1DB0EC170025CC8F /* Maps */,
+				CAFF79941DBB515C002CFAD3 /* Stack */,
 				CA0DC0A71DA6708C008E5FA3 /* LinkList */,
+				CAFF79981DBB64CA002CFAD3 /* Graph */,
 				CA0DC0B51DA950C1008E5FA3 /* CareerCup */,
 				CA6796E31DA5067000B09B61 /* Arrays */,
 				CAE21BFD1DA0C33A004E5763 /* Heaps */,
@@ -251,6 +264,25 @@
 				CAE21C031DA10CAB004E5763 /* PriorityQueue.m */,
 			);
 			name = Heaps;
+			sourceTree = "<group>";
+		};
+		CAFF79941DBB515C002CFAD3 /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				CAFF79951DBB5170002CFAD3 /* Stack.h */,
+				CAFF79961DBB5170002CFAD3 /* Stack.m */,
+			);
+			name = Stack;
+			sourceTree = "<group>";
+		};
+		CAFF79981DBB64CA002CFAD3 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				CAFF79991DBB653A002CFAD3 /* GraphAlgorithm.h */,
+				CAFF799A1DBB653A002CFAD3 /* GraphAlgorithm.m */,
+			);
+			name = Graph;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,10 +426,13 @@
 				CA2A6ADE1DB0EC400025CC8F /* MapNode.m in Sources */,
 				CAE21BCE1D9E6656004E5763 /* ViewController.m in Sources */,
 				CA0DC0B41DA6A272008E5FA3 /* SentinelLinkedList.m in Sources */,
+				CAFF79971DBB5170002CFAD3 /* Stack.m in Sources */,
+				CAFF79931DBB4BE6002CFAD3 /* CCMutableNumber.m in Sources */,
 				CAF80F871DB36219000001A4 /* Map.m in Sources */,
 				CAE21BCB1D9E6656004E5763 /* AppDelegate.m in Sources */,
 				CA0DC0AD1DA67AC6008E5FA3 /* Node.m in Sources */,
 				CAE21BFB1D9E66A7004E5763 /* Sorting.m in Sources */,
+				CAFF799B1DBB653A002CFAD3 /* GraphAlgorithm.m in Sources */,
 				CAE21BC81D9E6656004E5763 /* main.m in Sources */,
 				CA6796E61DA506A500B09B61 /* Arrays-Algorithms.m in Sources */,
 			);

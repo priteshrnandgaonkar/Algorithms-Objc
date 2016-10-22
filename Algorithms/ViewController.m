@@ -13,6 +13,7 @@
 #import "Arrays-Algorithms.h"
 #import "CareerCupAlgorithms.h"
 #import "Map.h"
+#import "GraphAlgorithm.h"
 
 @interface ViewController ()
 
@@ -136,7 +137,14 @@
                                 @[@(NO), @(NO), @(NO), @(YES), @(NO), @(YES), @(NO)],
                                 @[@(YES), @(YES), @(NO), @(NO), @(YES), @(NO), @(NO)],
                                 @[@(YES), @(NO), @(NO), @(NO), @(NO), @(NO), @(NO)]];
-    [CareerCupAlgorithms doubleGraphTraversalWithAdjacencyMatrix:doubleDFSArray root:0];
+    [GraphAlgorithm doubleGraphTraversalWithAdjacencyMatrix:doubleDFSArray root:0];
+    Log(@"DFS TRAVERSAL");
+
+    [GraphAlgorithm DFSWithAdjacencyMatrix:doubleDFSArray];
+    
+    Log(@"TOPOLOGICAL SORT");
+    [GraphAlgorithm topologicalSortWithAdjacencyMatrix:doubleDFSArray];
+
 }
 
 
