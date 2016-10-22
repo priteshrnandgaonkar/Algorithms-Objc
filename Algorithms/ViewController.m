@@ -158,7 +158,37 @@
     NSUInteger count = [GraphAlgorithm numberOfPathsFromSource:0 destination:3 adjacencyMatrix:directedGraph];
 
     Log(@"Number Of paths in Directed grapth from source = %d to destination = %d is count = %lu", 0, 3, (unsigned long)count);
+    
+    NSArray *undirectedGraph2 = @[@[@(NO), @(YES), @(NO), @(NO), @(NO), @(NO), @(NO), @(NO)],
+                               @[@(YES), @(NO), @(YES), @(YES), @(NO), @(YES), @(NO), @(NO)],
+                               @[@(NO), @(YES), @(NO), @(NO), @(NO), @(YES), @(YES), @(YES)],
+                               @[@(NO), @(YES), @(NO), @(NO), @(YES), @(NO), @(NO), @(NO)],
+                               @[@(NO), @(NO), @(NO), @(YES), @(NO), @(YES), @(NO), @(NO)],
+                               @[@(NO), @(YES), @(YES), @(NO), @(YES), @(NO), @(YES), @(NO)],
+                               @[@(NO), @(NO), @(YES), @(NO), @(NO), @(YES), @(NO), @(NO)],
+                               @[@(NO), @(NO), @(YES), @(NO), @(NO), @(NO), @(NO), @(NO)]
+                               ];
 
+    NSArray *undirectedGraph3 = @[@[@(NO), @(YES), @(NO), @(NO)],
+                                @[@(YES), @(NO), @(YES), @(YES)],
+                                @[@(NO), @(YES), @(NO), @(NO)],
+                                @[@(NO), @(YES), @(NO), @(NO)]
+                                ];
+    BOOL foundLoop = [GraphAlgorithm doesUndirectedGraphHasLoopMatrix:undirectedGraph2];
+    Log(@"Found Loop %d", foundLoop);
+    
+    Log(@"STRONGLY CONNECTED");
+    NSArray *directedGraphStronglyConnected = @[@[@(NO), @(YES), @(NO), @(NO), @(NO), @(NO), @(NO), @(NO)],
+                                  @[@(NO), @(NO), @(YES), @(NO), @(NO), @(NO), @(YES), @(YES)],
+                                  @[@(NO), @(NO), @(NO), @(YES), @(NO), @(YES), @(NO), @(NO)],
+                                  @[@(NO), @(NO), @(YES), @(NO), @(YES), @(NO), @(NO), @(NO)],
+                                  @[@(NO), @(NO), @(NO), @(NO), @(YES), @(NO), @(NO), @(NO)],
+                                  @[@(NO), @(NO), @(NO), @(NO), @(NO), @(NO), @(YES), @(NO)],
+                                  @[@(NO), @(NO), @(NO), @(NO), @(NO), @(YES), @(NO), @(NO)],
+                                  @[@(YES), @(NO), @(NO), @(NO), @(NO), @(NO), @(YES), @(NO)]
+                                  ];
+
+    [GraphAlgorithm stronglyConnectedComponent:directedGraphStronglyConnected];
 }
 
 

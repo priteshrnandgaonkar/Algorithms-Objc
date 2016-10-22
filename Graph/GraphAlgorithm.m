@@ -12,6 +12,8 @@
 
 @implementation GraphAlgorithm
 
+#pragma mark Graph traversal in each direction
+
 + (void)doubleGraphTraversalWithAdjacencyMatrix:(NSArray<NSArray<NSNumber *> *> *)mat root:(NSUInteger)i {
     
     NSMutableArray<NSNumber *> *visited = @[].mutableCopy;
@@ -45,6 +47,7 @@
     }
 }
 
+#pragma mark DFS
 
 + (void)DFSWithAdjacencyMatrix:(NSArray<NSArray<NSNumber *> *> *)mat {
     NSMutableArray<CCMutableNumber *> *discoveryTime = @[].mutableCopy;
@@ -79,6 +82,8 @@
     finishTime[idx] = time.copy;
 }
 
+#pragma markTopological Sort
+
 + (void)topologicalSortWithAdjacencyMatrix:(NSArray<NSArray<NSNumber *> *> *)mat {
     
     NSMutableArray<CCMutableNumber *> *discoveryTime = @[].mutableCopy;
@@ -97,7 +102,7 @@
     [st print];
 }
 
-+ (void)DFSWithAdjacencyMatrix:(NSArray<NSArray<NSNumber *> *> *)mat root:(NSUInteger)idx discoveryTime:(NSMutableArray<CCMutableNumber *> *)discoveryTime finishTime:(NSMutableArray<CCMutableNumber *> *)finishTime visited: (NSMutableArray<NSNumber *> *)visited time:(CCMutableNumber *)time stack:(Stack<NSNumber *> * _Nonnull)st {
++ (void)DFSWithAdjacencyMatrix:(NSArray<NSArray<NSNumber *> *> *)mat root:(NSUInteger)idx discoveryTime:(NSMutableArray<CCMutableNumber *> *)discoveryTime finishTime:(NSMutableArray<CCMutableNumber *> *)finishTime visited: (NSMutableArray<NSNumber *> *)visited time:(CCMutableNumber *)time stack:(Stack<NSNumber *> *)st {
     
     visited[idx] = @(YES);
     time.num = @(time.num.integerValue + 1);
@@ -112,6 +117,8 @@
     finishTime[idx] = time.copy;
     [st push:@(idx)];
 }
+
+#pragma mark Number Of Paths From Source to Destination
 
 + (NSUInteger)numberOfPathsFromSource:(NSUInteger)source destination:(NSUInteger)destination adjacencyMatrix:(NSArray<NSArray<NSNumber *> *> *)mat {
     NSMutableArray<NSNumber *> *countArray = @[].mutableCopy;
@@ -147,6 +154,159 @@
     }
     
     countArray[source] = @(count);
+}
+
+#pragma mark Does Undirected Graph Has Loop
+
++ (BOOL)doesUndirectedGraphHasLoopMatrix:(NSArray<NSArray<NSNumber *> *> *)mat {
+    NSMutableArray<NSNumber *> *visitedArray = @[].mutableCopy;
+    NSMutableArray<NSNumber *> *predecessorArray = @[].mutableCopy;
+
+    
+    for (NSUInteger i = 0; i < mat.count; ++i) {
+        visitedArray[i] = @(NO);
+        predecessorArray[i] = @(NSNotFound);
+    }
+    
+    BOOL foundLoop = NO;
+    for(NSUInteger i = 0; i < mat.count && !foundLoop; ++i) {
+        if(!visitedArray[i].boolValue) {
+            
+            foundLoop = [[self class] doesGraphHasLoopWithMatrix:mat visitedArray:visitedArray root:0 predecssorArray:predecessorArray];
+        }
+    }
+    return foundLoop;
+}
+
++ (BOOL)doesGraphHasLoopWithMatrix:(NSArray<NSArray<NSNumber *> *> *)mat visitedArray:(NSMutableArray<NSNumber *> *)visitedArray root:(NSUInteger)idx predecssorArray:(NSMutableArray<NSNumber *> *)predecessorArray {
+    
+    visitedArray[idx] = @(YES);
+    BOOL foundLoop = NO;
+    
+    for(NSUInteger i = 0; i < mat[idx].count; ++i) {
+        
+        if([mat[idx][i] isEqualToNumber:@(YES)] && visitedArray[i].boolValue && ![predecessorArray[idx] isEqualToNumber:@(i)]) {
+            foundLoop = YES;
+            break;
+        }
+        else if([mat[idx][i] isEqualToNumber:@(YES)] && !visitedArray[i].boolValue){
+            
+            predecessorArray[i] = @(idx);
+            foundLoop = [[self class] doesGraphHasLoopWithMatrix:mat visitedArray:visitedArray root:i predecssorArray:predecessorArray];
+            if(foundLoop) {
+                break;
+            }
+        }
+    }
+    
+    return foundLoop;
+}
+
+#pragma mark Strongly Connected Component
++ (void)stronglyConnectedComponent:(NSArray<NSArray<NSNumber *> *> *)mat {
+    
+    NSMutableArray<NSNumber *> *visited = @[].mutableCopy;
+    NSMutableArray<CCMutableNumber *> *finishTime = @[].mutableCopy;
+    
+    for(NSUInteger i = 0; i < mat.count; ++i){
+        visited[i] = @(NO);
+        finishTime[i] = [[CCMutableNumber alloc] initWithNumber:@(NSNotFound)];
+    }
+
+    [[self class] computeFinishTimeForAdjacencyMatrix:mat visited:visited finishTime:finishTime];
+    NSMutableArray<NSMutableArray<NSNumber *> *> *mut = [[self class] transposeOfAnArray: mat];
+    [[self class] printDFSInDescendingOrderOf:finishTime matrix:mut];
+}
+
++ (void)printDFSInDescendingOrderOf:(NSMutableArray<CCMutableNumber *> *)finishTime matrix:(NSArray<NSArray<NSNumber *> *> *)mat {
+    
+    [finishTime sortUsingComparator:^NSComparisonResult(CCMutableNumber *  _Nonnull obj1, CCMutableNumber *  _Nonnull obj2) {
+       
+        return [obj1.num compare:obj2.num];
+    }];
+    
+    NSMutableArray<NSNumber *> *visited = @[].mutableCopy;
+    for(NSUInteger i = 0; i < mat.count; ++i){
+        visited[i] = @(NO);
+    }
+    NSUInteger count = 0;
+    for(NSUInteger i = 0; i < finishTime.count; ++i) {
+        if(!visited[i].boolValue) {
+            Log(@"Strongly Connected component No %lu", count);
+
+            [[self class] DFSWithAdjacencyMatrix:mat root:i visited:visited];
+            count += 1;
+        }
+    }
+    
+}
++ (void)DFSWithAdjacencyMatrix:(NSArray<NSArray<NSNumber *> *> *)mat root:(NSUInteger)idx visited: (NSMutableArray<NSNumber *> *)visited {
+    
+    visited[idx] = @(YES);
+    Log(@"%lu", idx);
+    
+    for(NSUInteger i = 0; i < mat[idx].count; ++i) {
+        if([mat[idx][i] isEqualToNumber:@(YES)] && !visited[i].boolValue) {
+            [[self class] DFSWithAdjacencyMatrix:mat root:i visited:visited];
+        }
+    }
+
+}
+
++ (NSUInteger)maximumInArray:(NSArray<NSNumber *> *)arr {
+    NSUInteger max = NSIntegerMin;
+    NSUInteger idx = NSNotFound;
+    
+    for(NSUInteger i = 0; i < arr.count; ++i) {
+        if(max < arr[i].integerValue) {
+            max = arr[i].integerValue;
+            idx = i;
+        }
+    }
+    
+    return idx;
+}
+
++ (void)computeFinishTimeForAdjacencyMatrix:(NSArray<NSArray<NSNumber *> *> *)mat visited:(NSMutableArray<NSNumber *> *)visited finishTime:(NSMutableArray<CCMutableNumber *> *)finishTime {
+    
+    CCMutableNumber *time = [[CCMutableNumber alloc] initWithNumber:@(1)];
+    for(NSUInteger i = 0; i < mat.count; ++i) {
+        if(!visited[i].boolValue) {
+            [[self class] computeFinishTimeForAdjacencyMatrix:mat visited:visited finishTime:finishTime root:i time: time];
+        }
+    }
+}
+
++ (void)computeFinishTimeForAdjacencyMatrix:(NSArray<NSArray<NSNumber *> *> *)mat visited:(NSMutableArray<NSNumber *> *)visited finishTime:(NSMutableArray<CCMutableNumber *> *)finishTime root:(NSUInteger)idx time:(CCMutableNumber *)time {
+    
+    visited[idx] = @(YES);
+    Log(@"%lu", idx);
+    
+    for(NSUInteger i = 0; i < mat.count; ++i) {
+        if([mat[idx][i] isEqualToNumber:@(YES)] && !visited[i].boolValue){
+            time.num = @(time.num.integerValue + 1);
+            [[self class] computeFinishTimeForAdjacencyMatrix:mat visited:visited finishTime:finishTime root:i time:time];
+        }
+    }
+    
+    time.num = @(time.num.integerValue + 1);
+    finishTime[idx] = time.copy;
+}
+
++ (NSMutableArray<NSMutableArray<NSNumber *> *> *)transposeOfAnArray:(NSArray<NSArray<NSNumber *> *> *)arr {
+    NSMutableArray<NSMutableArray<NSNumber *> *> *mut = @[].mutableCopy;
+    
+    for(NSUInteger i = 0; i < arr.count; ++i) {
+        mut[i] = arr[i].mutableCopy;
+    }
+    
+    for(NSUInteger i = 0; i < arr.count; ++i) {
+        for(NSUInteger j = 0; j < arr[i].count; ++j) {
+            mut[j][i] = arr[i][j];
+        }
+    }
+    
+    return mut;
 }
 
 @end

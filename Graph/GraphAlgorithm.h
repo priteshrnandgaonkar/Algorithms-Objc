@@ -25,4 +25,8 @@
 /*
  Give an algorithm that determines whether or not a given undirected graph G = (V, E) contains a cycle. Your algorithm should run in O(V ) time, independent of |E|.
  */
++ (BOOL)doesUndirectedGraphHasLoopMatrix:(NSArray<NSArray<NSNumber *> *> *)mat;
+
++ (void)stronglyConnectedComponent:(NSArray<NSArray<NSNumber *> *> *)mat;
+
 @end
