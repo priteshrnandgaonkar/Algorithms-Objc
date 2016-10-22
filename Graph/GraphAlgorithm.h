@@ -15,4 +15,14 @@
 + (void)DFSWithAdjacencyMatrix:(NSArray<NSArray<NSNumber *> *> *)mat;
 
 + (void)topologicalSortWithAdjacencyMatrix:(NSArray<NSArray<NSNumber *> *> *)mat;
+
+/*
+ Give a linear-time algorithm that takes as input a directed acyclic graph G = (V, E) and two vertices s and t, and returns the number of paths from s to t in G. For example, in the directed acyclic graph of Figure 22.8, there are exactly four paths from vertex p to vertex v: pov, poryv, posryv, and psryv. (Your algo- rithm only needs to count the paths, not list them.)
+ */
+
++ (NSUInteger)numberOfPathsFromSource:(NSUInteger)source destination:(NSUInteger)destination adjacencyMatrix:(NSArray<NSArray<NSNumber *> *> *)mat;
+
+/*
+ Give an algorithm that determines whether or not a given undirected graph G = (V, E) contains a cycle. Your algorithm should run in O(V ) time, independent of |E|.
+ */
 @end

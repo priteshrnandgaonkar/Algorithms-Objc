@@ -144,6 +144,20 @@
     
     Log(@"TOPOLOGICAL SORT");
     [GraphAlgorithm topologicalSortWithAdjacencyMatrix:doubleDFSArray];
+    
+    NSArray *directedGraph = @[@[@(NO), @(YES), @(NO), @(NO), @(NO), @(NO), @(NO), @(NO)],
+                                @[@(NO), @(NO), @(YES), @(NO), @(NO), @(YES), @(NO), @(NO)],
+                                @[@(NO), @(NO), @(NO), @(NO), @(NO), @(NO), @(NO), @(YES)],
+                                @[@(NO), @(YES), @(NO), @(NO), @(YES), @(NO), @(NO), @(NO)],
+                                @[@(NO), @(NO), @(NO), @(NO), @(NO), @(YES), @(NO), @(NO)],
+                                @[@(NO), @(NO), @(YES), @(NO), @(NO), @(NO), @(YES), @(NO)],
+                                @[@(NO), @(NO), @(YES), @(NO), @(NO), @(NO), @(NO), @(NO)],
+                                @[@(NO), @(NO), @(NO), @(NO), @(NO), @(NO), @(NO), @(NO)]
+                                ];
+
+    NSUInteger count = [GraphAlgorithm numberOfPathsFromSource:0 destination:3 adjacencyMatrix:directedGraph];
+
+    Log(@"Number Of paths in Directed grapth from source = %d to destination = %d is count = %lu", 0, 3, (unsigned long)count);
 
 }
 

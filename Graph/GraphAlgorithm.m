@@ -113,4 +113,40 @@
     [st push:@(idx)];
 }
 
++ (NSUInteger)numberOfPathsFromSource:(NSUInteger)source destination:(NSUInteger)destination adjacencyMatrix:(NSArray<NSArray<NSNumber *> *> *)mat {
+    NSMutableArray<NSNumber *> *countArray = @[].mutableCopy;
+    NSMutableArray<NSNumber *> *visitedArray = @[].mutableCopy;
+
+    for(NSUInteger i = 0; i < mat.count; ++i) {
+        countArray[i] = @(0);
+        visitedArray[i] = @(NO);
+    }
+    
+    [[self class] numberOfPathsFromSource:source destination:destination adjacencyMatrix:mat count:countArray visited:visitedArray];
+    return countArray[source].integerValue;
+}
+
++ (void)numberOfPathsFromSource:(NSUInteger)source destination:(NSUInteger)destination adjacencyMatrix:(NSArray<NSArray<NSNumber *> *> *)mat count:(NSMutableArray<NSNumber *> *)countArray visited:(NSMutableArray<NSNumber *> *)visitedArray {
+
+    NSUInteger count = countArray[source].integerValue;
+    visitedArray[source] = @(YES);
+    
+    for(NSUInteger i = 0; i < mat[source].count; ++i) {
+        
+        if(i == destination && [mat[source][destination] isEqualToNumber:@(YES)]) {
+
+            count += 1;
+        }
+        else if([mat[source][i] isEqualToNumber:@(YES)] && [countArray[i] isEqualToNumber:@(0)] && !visitedArray[i].boolValue) {
+            [[self class] numberOfPathsFromSource:i destination:destination adjacencyMatrix:mat count:countArray visited:visitedArray];
+            count += countArray[i].integerValue;
+        }
+        else if([mat[source][i] isEqualToNumber:@(YES)] && ![countArray[i] isEqualToNumber:@(NSNotFound)] && visitedArray[i].boolValue) {
+          count += countArray[i].integerValue;
+        }
+    }
+    
+    countArray[source] = @(count);
+}
+
 @end
