@@ -29,11 +29,13 @@
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-    MapNode *node = [[[self class] allocWithZone:zone]
-                     initWithValue:self.value
-                     parent:self.parent
-                     left:self.left
-                     right:self.right];
+    
+    MapNode *node = [[[self class] allocWithZone:zone] init];
+    node.value = [self.value copyWithZone:zone];
+    node.parent = self.parent;
+    node.left = [self.left copyWithZone:zone];
+    node.right = [self.right copyWithZone:zone];
+
     return node;
 }
 

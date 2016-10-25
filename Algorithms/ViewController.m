@@ -14,6 +14,7 @@
 #import "CareerCupAlgorithms.h"
 #import "Map.h"
 #import "GraphAlgorithm.h"
+#import "RBLTree.h"
 
 @interface ViewController ()
 
@@ -23,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     NSArray *arrayToSort = @[@(3),@(2),@(1),@(4),@(5),@(6),@(2),@(2),@(2),@(1),@(12),@(0)];
     
     NSArray *insertionSortedArray = [Sorting insertionSortOnArray:arrayToSort];
@@ -189,6 +191,17 @@
                                   ];
 
     [GraphAlgorithm stronglyConnectedComponent:directedGraphStronglyConnected];
+    
+    Log(@"RBL TREE");
+    RBLTree *tree = [[RBLTree alloc] initWithValue:@(10)];
+    [tree insertNumber:@(4)];
+    [tree insertNumber:@(6)];
+    [tree insertNumber:@(14)];
+    [tree insertNumber:@(4)];
+    [tree insertNumber:@(13)];
+
+    [tree inorderTreeTraversal];
+    
 }
 
 
