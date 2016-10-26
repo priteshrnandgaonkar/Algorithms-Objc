@@ -8,12 +8,6 @@
 
 #import "RBLNode.h"
 
-@interface RBLNode()
-
-@property(strong, nonatomic, nonnull) NSNumber *value;
-
-@end
-
 @implementation RBLNode
 
 - (instancetype)initWithValue:(NSNumber *)num parent:(RBLNode *)parent left:(RBLNode *)left right:(RBLNode *)right color:(RBLNodeColor)color {

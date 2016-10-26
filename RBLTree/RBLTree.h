@@ -15,6 +15,9 @@
 
 - (instancetype)initWithValue:(NSNumber *)num;
 - (void)insertNumber:(NSNumber *)number;
+- (RBLNode *)predecessorOfNode:(RBLNode *)node;
+- (RBLNode *)searchNumber:(NSNumber *)number;
+- (void)deleteNumber:(RBLNode *)node;
 - (void)inorderTreeTraversal;
 
 @end

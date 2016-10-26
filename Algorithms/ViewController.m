@@ -199,7 +199,19 @@
     [tree insertNumber:@(14)];
     [tree insertNumber:@(4)];
     [tree insertNumber:@(13)];
-
+    [tree insertNumber:@(7)];
+    [tree insertNumber:@(19)];
+    [tree insertNumber:@(5)];
+    
+    RBLNode *node = [tree searchNumber:@(13)];
+    RBLNode *predecessor = [tree predecessorOfNode:node];
+    Log(@"Predecessor of %@ is %@ withColor %lu", node.value, predecessor.value, predecessor.color);
+    
+    [tree inorderTreeTraversal];
+    
+    Log(@"After Deletion");
+    [tree deleteNumber:node];
+    
     [tree inorderTreeTraversal];
     
 }

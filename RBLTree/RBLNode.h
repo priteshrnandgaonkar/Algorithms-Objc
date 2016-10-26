@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, RBLNodeColor) {
 
 @interface RBLNode : NSObject
 
-@property(strong, nonatomic, readonly, nonnull) NSNumber *value;
+@property(strong, nonatomic, nonnull) NSNumber *value;
 @property(assign, nonatomic) RBLNodeColor color;
 @property(weak, nonatomic, nullable) RBLNode *parent;
 @property(strong, nonatomic, nullable) RBLNode *left;

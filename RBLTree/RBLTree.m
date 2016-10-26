@@ -37,6 +37,156 @@
     return self;
 }
 
+- (RBLNode *)searchNumber:(NSNumber *)number {
+    RBLNode *result = nil;
+    
+    RBLNode *currentNode = self.root;
+    RBLNode *temp = nil;
+    while(currentNode){
+        if([currentNode.value compare:number] == NSOrderedSame) {
+            result = currentNode;
+            break;
+        }
+        else if([currentNode.value compare:number] == NSOrderedAscending) {
+            temp = currentNode.right;
+        }
+        else {
+            temp = currentNode.left;
+        }
+        if([temp.value isEqualToNumber:@(NSNotFound)]) {
+            break;
+        }
+        else {
+            currentNode = temp;
+        }
+    }
+    
+    return result;
+}
+
+- (void)deleteNumber:(RBLNode *)node {
+    RBLNode *currentNode = node;
+    RBLNode *child = nil;
+    if([node.right.value isEqualToNumber:@(NSNotFound)] || [node.left.value isEqualToNumber:@(NSNotFound)]) {
+        currentNode = node;
+    }
+    else {
+        currentNode = [self predecessorOfNode:node];
+    }
+    
+    if(![currentNode.left.value isEqualToNumber:@(NSNotFound)]) {
+        child = currentNode.left;
+    }
+    else {
+        child = currentNode.right;
+    }
+    
+    child.parent = currentNode.parent;
+    
+    if(currentNode.parent.left == currentNode) {
+        currentNode.parent.left = child;
+    }
+    else {
+        currentNode.parent.right = child;
+    }
+    
+    if(currentNode != node) {
+        node.value = currentNode.value;
+    }
+    if(currentNode.color == RBLNodeColorBlack){
+        [self RBLDeleteFixUpAtNode:child];
+    }
+}
+
+- (void)RBLDeleteFixUpAtNode:(RBLNode *)node {
+    RBLNode *siblingNode = nil;
+    while(self.root != node && node.color == RBLNodeColorBlack) {
+        if(node.parent.left == node) {
+            //Left
+            siblingNode = node.parent.right;
+            if(siblingNode.color == RBLNodeColorRed) {
+                //Case 1 When node's sibling is Red
+                siblingNode.color = RBLNodeColorBlack;
+                node.parent.color = RBLNodeColorRed;
+                [self leftRotateAroundNode:node.parent];
+            }
+            if(siblingNode.color == RBLNodeColorBlack && siblingNode.left.color == RBLNodeColorRed) {
+                //Case 2 When node's sibling is Black and Siblings left child is Red
+                siblingNode.color = RBLNodeColorRed;
+                siblingNode.left.color = RBLNodeColorBlack;
+                [self rightRotateAroundNode:siblingNode];
+            }
+            if(siblingNode.color == RBLNodeColorBlack && siblingNode.right.color == RBLNodeColorRed) {
+                //Case 3 When node's sibling is Black and Siblings right child is Red
+                siblingNode.color = siblingNode.parent.color;
+                siblingNode.parent.color = RBLNodeColorBlack;
+                siblingNode.right.color = RBLNodeColorBlack;
+                [self leftRotateAroundNode:siblingNode.parent];
+            }
+            
+        }
+        else {
+            //Right
+            siblingNode = node.parent.left;
+            if(siblingNode.color == RBLNodeColorRed) {
+                //Case 1 When node's sibling is Red
+                siblingNode.color = RBLNodeColorBlack;
+                node.parent.color = RBLNodeColorRed;
+                [self rightRotateAroundNode:node.parent];
+            }
+            if(siblingNode.color == RBLNodeColorBlack && siblingNode.right.color == RBLNodeColorRed) {
+                //Case 2 When node's sibling is Black and Siblings right child is Red
+                siblingNode.color = RBLNodeColorRed;
+                siblingNode.right.color = RBLNodeColorBlack;
+                [self leftRotateAroundNode:siblingNode];
+            }
+            if(siblingNode.color == RBLNodeColorBlack && siblingNode.left.color == RBLNodeColorRed) {
+                //Case 3 When node's sibling is Black and Siblings left child is Red
+                siblingNode.color = siblingNode.parent.color;
+                siblingNode.parent.color = RBLNodeColorBlack;
+                siblingNode.left.color = RBLNodeColorBlack;
+                [self rightRotateAroundNode:siblingNode.parent];
+            }
+        }
+    }
+    
+    node.color = RBLNodeColorBlack;
+}
+
+
+- (RBLNode *)predecessorOfNode:(RBLNode *)node {
+    if(![node.left.value isEqualToNumber:@(NSNotFound)]) {
+        return [self maximumFromNode:node.left];
+    }
+    if(![node.parent.value isEqualToNumber:@(NSNotFound)]) {
+        RBLNode *currentNode = node;
+        while(currentNode.parent.left == currentNode) {
+            if(![currentNode.parent.value isEqualToNumber:@(NSNotFound)]) {
+                currentNode = currentNode.parent;
+            }
+            else {
+                break;
+            }
+        }
+        
+        return currentNode.parent;
+        
+    }
+    else {
+        return nil;
+    }
+}
+
+- (RBLNode *)maximumFromNode:(RBLNode *)node {
+    if(![node.right.value isEqualToNumber:@(NSNotFound)]) {
+        return [self maximumFromNode:node.right];
+    }
+    else {
+        return node;
+    }
+}
+
+
 - (void)insertNumber:(NSNumber *)number {
     
     RBLNode *nodeToInsert = [[RBLNode alloc] initWithValue:number parent:nil left:nil right:nil color:RBLNodeColorRed];
