@@ -7,7 +7,7 @@
 //
 
 #import "CareerCupAlgorithms.h"
-
+#import "Stack.h"
 
 @implementation CareerCupAlgorithms
 
@@ -73,6 +73,45 @@
     }
     
     return sum == 0;
+}
+
++ (NSDictionary<NSNumber *, MapNode *> *)firstNonMatchingLeafPairFromtree:(Map *)treeOne treeTwo:(Map *)treeTwo {
+    
+    Stack<MapNode *> *stackOne = [[Stack alloc] initWithObject:treeOne.root];
+    Stack<MapNode *> *stackTwo = [[Stack alloc] initWithObject:treeTwo.root];
+    
+    MapNode *leafOne = [[self class] leafForTreeWithStack:stackOne];
+    MapNode *leafTwo = [[self class] leafForTreeWithStack:stackTwo];
+    
+    while(leafOne && leafTwo) {
+        if (![leafOne.value isEqualToNumber:leafTwo.value]) {
+            return @{@(1): leafOne, @(2): leafTwo};
+        }
+        else {
+            leafOne = [[self class] leafForTreeWithStack:stackOne];
+            leafTwo = [[self class] leafForTreeWithStack:stackTwo];
+        }
+    }
+    return nil;
+}
+
++ (MapNode *)leafForTreeWithStack:(Stack *)stack {
+    
+    MapNode *node = nil;
+    while (stack.count > 0) {
+        node = stack.pop;
+        if (!node.left && !node.right) {
+            return node;
+        }
+        if (node.right) {
+            [stack push:node.right];
+        }
+        if (node.left) {
+            [stack push:node.left];
+        }
+    }
+    
+    return nil;
 }
 
 @end

@@ -1,22 +1,84 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeK-Xm-sqG">
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Hb7-vf-YKj"/>
+                                </constraints>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvs-tf-Y44">
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="mvs-tf-Y44" firstAttribute="height" secondItem="yeK-Xm-sqG" secondAttribute="height" id="402-Qj-TdL"/>
+                            <constraint firstItem="mvs-tf-Y44" firstAttribute="top" secondItem="yeK-Xm-sqG" secondAttribute="bottom" constant="20" id="5Fj-cW-hf2"/>
+                            <constraint firstAttribute="trailing" secondItem="yeK-Xm-sqG" secondAttribute="trailing" constant="50" id="6He-We-ZMB"/>
+                            <constraint firstItem="yeK-Xm-sqG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GPb-NX-p39"/>
+                            <constraint firstItem="mvs-tf-Y44" firstAttribute="width" secondItem="yeK-Xm-sqG" secondAttribute="width" id="IZE-l9-3N4"/>
+                            <constraint firstItem="yeK-Xm-sqG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="Mt6-JR-3o1"/>
+                            <constraint firstItem="mvs-tf-Y44" firstAttribute="trailing" secondItem="yeK-Xm-sqG" secondAttribute="trailing" id="OCl-ef-AYx"/>
+                            <constraint firstItem="mvs-tf-Y44" firstAttribute="leading" secondItem="yeK-Xm-sqG" secondAttribute="leading" id="Xxc-Us-uml"/>
+                            <constraint firstItem="yeK-Xm-sqG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="agh-2g-sA0"/>
+                            <constraint firstItem="mvs-tf-Y44" firstAttribute="width" secondItem="yeK-Xm-sqG" secondAttribute="width" id="bsV-1N-8Aj"/>
+                            <constraint firstAttribute="trailing" secondItem="mvs-tf-Y44" secondAttribute="trailing" id="k5W-XS-I2x"/>
+                            <constraint firstItem="mvs-tf-Y44" firstAttribute="top" secondItem="yeK-Xm-sqG" secondAttribute="top" id="q56-a8-Kp1"/>
+                            <constraint firstItem="yeK-Xm-sqG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t4b-J4-CGk"/>
+                            <constraint firstItem="yeK-Xm-sqG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uBs-ur-YQh"/>
+                            <constraint firstItem="mvs-tf-Y44" firstAttribute="leading" secondItem="yeK-Xm-sqG" secondAttribute="trailing" id="wrm-f6-VTm"/>
+                            <constraint firstItem="mvs-tf-Y44" firstAttribute="height" secondItem="yeK-Xm-sqG" secondAttribute="height" id="yvM-uT-kJM"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6He-We-ZMB"/>
+                                <exclude reference="Mt6-JR-3o1"/>
+                                <exclude reference="agh-2g-sA0"/>
+                                <exclude reference="t4b-J4-CGk"/>
+                                <exclude reference="402-Qj-TdL"/>
+                                <exclude reference="5Fj-cW-hf2"/>
+                                <exclude reference="OCl-ef-AYx"/>
+                                <exclude reference="Xxc-Us-uml"/>
+                                <exclude reference="bsV-1N-8Aj"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="6He-We-ZMB"/>
+                                <include reference="Mt6-JR-3o1"/>
+                                <include reference="agh-2g-sA0"/>
+                                <exclude reference="t4b-J4-CGk"/>
+                                <exclude reference="uBs-ur-YQh"/>
+                                <include reference="402-Qj-TdL"/>
+                                <include reference="5Fj-cW-hf2"/>
+                                <exclude reference="IZE-l9-3N4"/>
+                                <include reference="OCl-ef-AYx"/>
+                                <include reference="Xxc-Us-uml"/>
+                                <include reference="bsV-1N-8Aj"/>
+                                <exclude reference="k5W-XS-I2x"/>
+                                <exclude reference="q56-a8-Kp1"/>
+                                <exclude reference="wrm-f6-VTm"/>
+                                <exclude reference="yvM-uT-kJM"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

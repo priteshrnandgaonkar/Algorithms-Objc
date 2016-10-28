@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CCMutableNumber.h"
+#import "Map.h"
 
 @interface CareerCupAlgorithms : NSObject
 
@@ -16,5 +17,7 @@
 + (void)squareAndSortArray:(NSMutableArray<NSNumber *> *)array;
 
 + (BOOL)doesThereExistSubsequenceInArray:(NSArray<NSNumber *> *)array withSum:(NSInteger)sum;
+
++ (NSDictionary<NSNumber *, MapNode *> *)firstNonMatchingLeafPairFromtree:(Map *)treeOne treeTwo:(Map *)treeTwo;
 
 @end

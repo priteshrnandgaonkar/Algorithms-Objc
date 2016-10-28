@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "MapNode.h"
+#import "Map.h"
 
 @interface MapAlgorithms : NSObject
 
 + (void)inorderTreeTraversalWithRoot:(MapNode *)root;
 + (MapNode *)binarySearchTreeWithRoot:(MapNode *)node number:(NSNumber *)num;
++ (void)depthFirstSearch:(Map *)map;
++ (NSDictionary<NSNumber *, MapNode *> *)firstUnmachedLeafPairForTreeOne:(Map *)rootOne treeTwo:(Map *)rootTwo;
 + (MapNode *)minimumIterativelyForTreeRoot:(MapNode *)root;
 + (MapNode *)minimumForTreeRoot:(MapNode *)root;
 + (MapNode *)maximumIterativelyForTreeRoot:(MapNode *)root;

@@ -15,6 +15,7 @@
 #import "Map.h"
 #import "GraphAlgorithm.h"
 #import "RBLTree.h"
+#import "MapAlgorithms.h"
 
 @interface ViewController ()
 
@@ -123,6 +124,24 @@
     [map insertNumber:@(18)];
     [map insertNumber:@(11)];
     [map inorderTreeTraversal];
+    
+    Log(@"Depth First Search-----------");
+    
+    MapNode *root2 = [[MapNode alloc] initWithValue:@(10) parent:nil left:nil right:nil];
+    Map *map2 = [[Map alloc] initWithRoot:root2];
+    [map2 insertNumber:@(15)];
+    [map2 insertNumber:@(17)];
+    [map2 insertNumber:@(11)];
+    [map2 insertNumber:@(6)];
+    [map2 insertNumber:@(2)];
+    [map2 insertNumber:@(8)];
+    [map2 insertNumber:@(9)];
+    [MapAlgorithms depthFirstSearch:map];
+    
+    NSDictionary<NSNumber *, MapNode *> *dict = [CareerCupAlgorithms firstNonMatchingLeafPairFromtree:map treeTwo:map2];
+    
+    Log(@"Leaf1 = %@, Leaf2 = %@", dict[@(1)].value, dict[@(2)].value);
+    
     Log(@"MINIMUM MAP: %@", [map minimum].value);
     Log(@"MAXIMUM MAP: %@", [map maximum].value);
     Log(@"BINARY SEARCH: %@", [map binarySearchNumber:@(11)].value);

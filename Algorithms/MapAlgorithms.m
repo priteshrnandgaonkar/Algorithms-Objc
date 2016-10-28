@@ -7,8 +7,27 @@
 //
 
 #import "MapAlgorithms.h"
+#import "Stack.h"
 
 @implementation MapAlgorithms
+
++ (void)depthFirstSearch:(Map *)map {
+    
+    Stack<MapNode *> *st = [[Stack alloc] init];
+    [st push:map.root];
+    
+    while(st.count > 0) {
+        MapNode *node = st.pop;
+        Log(@"%@", node.value);
+        
+        if(node.right) {
+            [st push:node.right];
+        }
+        if(node.left) {
+            [st push:node.left];
+        }
+    }
+}
 
 + (void)inorderTreeTraversalWithRoot:(MapNode *)root {
     if(root == nil)
