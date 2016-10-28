@@ -20,6 +20,7 @@
 
 + (NSDictionary<NSNumber *, MapNode *> *)firstNonMatchingLeafPairFromtree:(Map *)treeOne treeTwo:(Map *)treeTwo;
 
+/// Time Complexity: O(n) and Space Complexity: O(n) where n are the no of intervals
 + (NSUInteger)largestOverlappingLengthAmongstTheGivenIntervals:(NSArray<NSArray<NSNumber *> *> *)arrayOfIntervals;
 
 @end
