@@ -232,6 +232,13 @@
     [tree deleteNumber:node];
     
     [tree inorderTreeTraversal];
+ 
+    Log(@"OVERLAPPING INTERVAL");
+    
+    NSArray<NSArray<NSNumber *> *> *arrayOfIntervals = @[@[@(4), @(6)], @[@(1), @(2)]];//@[@[@(1), @(4)], @[@(6), @(8)], @[@(2), @(4)], @[@(7), @(9)], @[@(10), @(15)]];//@[@[@(7), @(9)], @[@(1), @(4)], @[@(6), @(8)], @[@(2), @(4)], @[@(10), @(15)]];//;////@[@[@(1), @(4)], @[@(2), @(3)]];
+    NSUInteger overlappingLength =  [CareerCupAlgorithms largestOverlappingLengthAmongstTheGivenIntervals: arrayOfIntervals];
+   
+    Log(@"OVERLAPING INTERVAL LENGTH = %lu", overlappingLength);
     
 }
 

@@ -16,6 +16,14 @@
 
 @implementation Map
 
+- (instancetype)init {
+    self = [super init];
+    if(self) {
+        _root = nil;
+    }
+    return self;
+}
+
 - (instancetype)initWithRoot:(MapNode *)root {
     self = [super init];
     if(self) {
@@ -59,6 +67,11 @@
 - (void)insertNumber:(NSNumber *)num {
     MapNode *node = [[MapNode alloc] initWithValue:num parent:nil left:nil right:nil];
     
+    if(!self.root) {
+        self.root = node;
+        return;
+    }
+    
     MapNode *currentNode = self.root;
 
     if(!currentNode){
@@ -87,6 +100,42 @@
     }
     else{
         currentNode.right = node;
+        node.parent = currentNode;
+    }
+}
+
+- (void)insertNode:(MapNode *)node {
+    
+    if(!self.root) {
+        self.root = node;
+        return;
+    }
+    
+    MapNode *currentNode = self.root;
+    
+    MapNode *temp = nil;
+    while(currentNode) {
+        if([currentNode.value compare:node.value] == NSOrderedAscending){
+            temp = currentNode.right;
+        }
+        else {
+            temp = currentNode.left;
+        }
+        
+        if(!temp) {
+            break;
+        }
+        else {
+            currentNode = temp;
+        }
+    }
+    
+    if([currentNode.value compare:node.value] == NSOrderedAscending) {
+        currentNode.right = node;
+        node.parent = currentNode;
+    }
+    else{
+        currentNode.left = node;
         node.parent = currentNode;
     }
 }

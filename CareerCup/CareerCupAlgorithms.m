@@ -8,8 +8,106 @@
 
 #import "CareerCupAlgorithms.h"
 #import "Stack.h"
+#import "MapNode.h"
 
 @implementation CareerCupAlgorithms
+
++ (NSUInteger)largestOverlappingLengthAmongstTheGivenIntervals:(NSArray<NSArray<NSNumber *> *> *)arrayOfIntervals {
+    Map *map = [[self class] buildTree:arrayOfIntervals];
+    
+    MapNode *currentNode = map.root;
+    NSUInteger result = [[self class] rightOverlappingIntervalLength:currentNode];
+    
+    NSUInteger parentSpan = 0;
+    
+    NSUInteger valueToDeduct = 0;
+    //Evaluate left branch
+    while(currentNode.left) {
+        valueToDeduct = 0;
+        parentSpan = ((NSNumber *)currentNode.data).integerValue;
+        result += [[self class] rightOverlappingIntervalLength:currentNode.left];
+        valueToDeduct += [[self class] rightOverlapLengthGreaterThan:currentNode.value.integerValue - parentSpan fromNode: currentNode.left];
+        result -= valueToDeduct;
+        
+        currentNode = currentNode.left;
+    }
+    return result;
+}
+
++ (NSUInteger)rightOverlappingIntervalLength:(MapNode *)node {
+    
+    NSUInteger result = ((NSNumber *)node.data).integerValue;
+    MapNode *currentNode = node;
+    
+    NSUInteger currentNodesEnd = 0;
+    NSUInteger currentNodesSpan = 0;
+
+    NSUInteger rightNodesEnd = 0;
+    NSUInteger rightNodesSpan = 0;
+
+    while(currentNode.right) {
+        
+        currentNodesEnd = currentNode.value.integerValue;
+        currentNodesSpan = ((NSNumber *)currentNode.data).integerValue;
+        
+        rightNodesEnd = currentNode.right.value.integerValue;
+        rightNodesSpan = ((NSNumber *)currentNode.right.data).integerValue;
+
+        if (rightNodesEnd - rightNodesSpan > currentNodesEnd) {
+            //Disjoint interval
+            result += rightNodesSpan;
+        }
+        else if (rightNodesSpan - rightNodesEnd > currentNodesEnd - currentNodesSpan) {
+            //Right intervals start is between the current interval
+            result += rightNodesEnd - currentNodesEnd;
+        }
+        else if (rightNodesSpan - rightNodesEnd < currentNodesEnd - currentNodesSpan) {
+            //Right interval is superset of the current interval
+            result += rightNodesEnd - currentNodesEnd;
+            result += currentNodesEnd - currentNodesSpan - (rightNodesSpan - rightNodesEnd);
+        }
+        
+        currentNode = currentNode.right;
+    }
+    return result;
+}
+
++ (NSUInteger)rightOverlapLengthGreaterThan:(NSUInteger)num fromNode:(MapNode *)node {
+    
+    NSUInteger result = 0;
+    MapNode *currentNode = node;
+    
+    NSUInteger currentNodesEnd = 0;
+    NSUInteger currentNodesSpan = 0;
+    
+    while(currentNode) {
+        
+        currentNodesEnd = currentNode.value.integerValue;
+        currentNodesSpan = ((NSNumber *)currentNode.data).integerValue;
+
+        if(currentNodesEnd - currentNodesSpan > num) {
+            result += currentNodesSpan;
+        }
+        else if (currentNodesEnd > num && currentNodesEnd - currentNodesSpan <= num){
+            result += currentNodesEnd - num;
+        }
+        currentNode = currentNode.right;
+    }
+    return result;
+}
+
+
++ (Map *)buildTree:(NSArray<NSArray<NSNumber *> *> *)arrayOfIntervals {
+    Map *map = [[Map alloc] init];
+    MapNode *node = nil;
+    for(NSArray<NSNumber *> *interval in arrayOfIntervals) {
+        
+        NSUInteger lengthOfInterval = interval[1].integerValue - interval[0].integerValue;
+        node = [[MapNode alloc] initWithValue:interval[1] parent:nil left:nil right:nil data:@(lengthOfInterval)];
+        [map insertNode:node];
+    }
+    return map;
+}
 
 + (void)squareAndSortArray:(NSMutableArray<NSNumber *> *)array {
     

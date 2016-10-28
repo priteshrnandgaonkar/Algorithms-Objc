@@ -14,10 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, readonly, strong) MapNode *root;
 - (instancetype)initWithRoot:(MapNode *)root;
+- (instancetype)init;
 
 - (void)inorderTreeTraversal;
 - (MapNode *)binarySearchNumber:(NSNumber *)num;
 - (void)insertNumber:(NSNumber *)num;
+- (void)insertNode:(MapNode *)node;
 - (MapNode *)minimum;
 - (MapNode *)maximum;
 - (MapNode *)predecessorForNode:(MapNode *)node;

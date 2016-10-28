@@ -20,10 +20,24 @@
     
     self = [super init];
     if(self) {
-        self.value = num;
-        self.left = left;
-        self.parent = parent;
-        self.right = right;
+        _value = num;
+        _left = left;
+        _parent = parent;
+        _right = right;
+        _data = nil;
+    }
+    return self;
+}
+
+- (_Nonnull instancetype)initWithValue:(NSNumber  * _Nonnull )num parent:(MapNode * _Nullable)parent left:(MapNode * _Nullable)left right:(MapNode * _Nullable)right data: (id _Nullable)satelliteData {
+    
+    self = [super init];
+    if(self) {
+        _value = num;
+        _left = left;
+        _parent = parent;
+        _right = right;
+        _data = satelliteData;
     }
     return self;
 }
