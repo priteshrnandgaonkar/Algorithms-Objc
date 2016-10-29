@@ -235,11 +235,20 @@
  
     Log(@"OVERLAPPING INTERVAL");
     
-    NSArray<NSArray<NSNumber *> *> *arrayOfIntervals = @[@[@(4), @(6)], @[@(1), @(2)]];//@[@[@(1), @(4)], @[@(6), @(8)], @[@(2), @(4)], @[@(7), @(9)], @[@(10), @(15)]];//@[@[@(7), @(9)], @[@(1), @(4)], @[@(6), @(8)], @[@(2), @(4)], @[@(10), @(15)]];//;////@[@[@(1), @(4)], @[@(2), @(3)]];
+    NSArray<NSArray<NSNumber *> *> *arrayOfIntervals = @[@[@(7), @(9)], @[@(1), @(4)], @[@(6), @(8)], @[@(2), @(4)], @[@(10), @(15)]];//@[@[@(1), @(4)], @[@(6), @(8)], @[@(2), @(4)], @[@(7), @(9)], @[@(10), @(15)]];//;//;////@[@[@(1), @(4)], @[@(2), @(3)]];
     NSUInteger overlappingLength =  [CareerCupAlgorithms largestOverlappingLengthAmongstTheGivenIntervals: arrayOfIntervals];
    
-    Log(@"OVERLAPING INTERVAL LENGTH = %lu", overlappingLength);
+    Log(@"OVERLAPPING INTERVAL LENGTH = %lu", overlappingLength);
+ 
+    NSArray<NSArray<NSNumber *> *> *mat = @[
+  @[@(YES), @(YES), @(YES), @(YES), @(YES), @(YES), @(YES), @(YES), @(YES), @(YES)],
+  @[@(YES), @(YES), @(NO), @(YES), @(YES), @(NO), @(YES), @(NO), @(YES), @(YES)],
+  @[@(YES), @(YES), @(YES), @(YES), @(YES), @(YES), @(YES), @(YES), @(YES), @(YES)]
+  ];
     
+    NSUInteger longestPath = [CareerCupAlgorithms longestPathFromSourceToDestinationIn:mat sourceRow:0 sourceColumn:0 destinationRow:1 destinationColumn:7];
+    
+    Log(@"Longest Path %lu", longestPath);
 }
 
 

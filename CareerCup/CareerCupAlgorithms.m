@@ -212,4 +212,44 @@
     return nil;
 }
 
++ (NSInteger)longestPathFromSourceToDestinationIn:(NSArray<NSArray<NSNumber *> *> *)arr sourceRow:(NSUInteger)sr sourceColumn:(NSUInteger)sc destinationRow:(NSUInteger)dr destinationColumn:(NSUInteger)dc {
+    
+    NSMutableArray<NSMutableArray<NSNumber *> *> *history = @[@[].mutableCopy].mutableCopy;
+    
+    for (NSUInteger i = 0; i < arr.count; ++i) {
+        [history addObject:@[].mutableCopy];
+        for (NSUInteger j = 0; j < arr[i].count; ++j) {
+            [history[i] addObject:@(NO)];
+        }
+    }
+    
+    return [[self class] longestPathFromSourceToDestinationIn:arr history:history sourceRow:sr sourceColumn:sc destinationRow:dr destinationColumn:dc];
+}
+
++ (NSInteger)longestPathFromSourceToDestinationIn:(NSArray<NSArray<NSNumber *> *> *)arr history:(NSMutableArray<NSMutableArray<NSNumber *> *> *)history sourceRow:(NSUInteger)sr sourceColumn:(NSUInteger)sc destinationRow:(NSUInteger)dr destinationColumn:(NSUInteger)dc {
+    
+    if (sr >= arr.count || sc >= arr[0].count || !arr[sr][sc].boolValue) {
+        return -1;
+    }
+    
+    if (sr == dr && sc == dc) {
+        return 1;
+    }
+    
+    if (history[sr][sc].boolValue) {
+        return 0;
+    }
+    
+    history[sr][sc] = @(YES);
+    
+    NSInteger up = [[self class] longestPathFromSourceToDestinationIn:arr history:history sourceRow:sr - 1 sourceColumn:sc destinationRow:dr destinationColumn:dc];
+    NSInteger down = [[self class] longestPathFromSourceToDestinationIn:arr history:history sourceRow:sr + 1 sourceColumn:sc destinationRow:dr destinationColumn:dc];
+    NSInteger left = [[self class] longestPathFromSourceToDestinationIn:arr history:history sourceRow:sr sourceColumn:sc - 1 destinationRow:dr destinationColumn:dc];
+    NSInteger right = [[self class] longestPathFromSourceToDestinationIn:arr history:history sourceRow:sr sourceColumn:sc + 1 destinationRow:dr destinationColumn:dc];
+    
+    NSUInteger maxValue = MAX(MAX(up, down), MAX(left, right));
+    
+    return maxValue + 1;
+}
+
 @end
