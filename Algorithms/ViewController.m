@@ -249,14 +249,21 @@
     NSUInteger longestPath = [CareerCupAlgorithms longestPathFromSourceToDestinationIn:mat sourceRow:0 sourceColumn:0 destinationRow:1 destinationColumn:7];
     
     Log(@"Longest Path %lu", longestPath);
+    NSArray<NSArray<NSNumber *> *> *mat2 = @[
+    @[@(YES), @(YES), @(YES), @(YES)],
+    @[@(YES), @(YES), @(NO), @(YES)],
+    @[@(YES), @(YES), @(YES), @(YES)]
+                                            ];
+    NSMutableArray *adjMat = [CareerCupAlgorithms buildTreeFromMatrix:mat2];
+    NSUInteger shortestPath = [CareerCupAlgorithms shortestPathFromSourceToDestinationIn:mat sourceRow:0 sourceColumn:0 destinationRow:1 destinationColumn:6];
+    Log(@"Shortest Path %lu", shortestPath);
+
+    
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end

@@ -9,6 +9,9 @@
 #import "CareerCupAlgorithms.h"
 #import "Stack.h"
 #import "MapNode.h"
+#import "GraphNode.h"
+#import "GraphNodeData.h"
+#import "PNQueue.h"
 
 @implementation CareerCupAlgorithms
 
@@ -250,6 +253,69 @@
     NSUInteger maxValue = MAX(MAX(up, down), MAX(left, right));
     
     return maxValue + 1;
+}
+
++ (NSInteger)shortestPathFromSourceToDestinationIn:(NSArray<NSArray<NSNumber *> *> *)arr sourceRow:(NSUInteger)sr sourceColumn:(NSUInteger)sc destinationRow:(NSUInteger)dr destinationColumn:(NSUInteger)dc {
+    
+    NSMutableArray<NSMutableArray<NSNumber *> *> *adjMat = [[self class] buildTreeFromMatrix:arr];
+    NSUInteger rootIndex = (sr) * arr[0].count + sc;
+    NSMutableArray<NSNumber *> *countArray = [[NSMutableArray alloc] initWithCapacity:arr.count * arr[0].count];
+    for(NSUInteger i = 0; i < arr.count * arr[0].count; ++i) {
+        countArray[i] = @(NSNotFound);
+    }
+    countArray[rootIndex] = @(0);
+    PNQueue<NSNumber *> *queue = [[PNQueue alloc] init];
+    [queue enqueue:@(rootIndex)];
+    while(queue.count > 0) {
+        NSNumber *num = queue.dequeue;
+        
+        for(NSUInteger j = 0; j < adjMat[num.integerValue].count; ++j) {
+            if([adjMat[num.integerValue][j] isEqualToNumber:@(YES)] && j == ((dr) * arr[0].count + dc)) {
+                return countArray[num.integerValue].integerValue + 1;
+            }
+            if([adjMat[num.integerValue][j] isEqualToNumber:@(YES)] && [countArray[j] isEqualToNumber:@(NSNotFound)]) {
+                countArray[j] = @(countArray[num.integerValue].integerValue + 1);
+                [queue enqueue:@(j)];
+            }
+        }
+    }
+    return NSNotFound;
+}
+
++ (NSMutableArray<NSMutableArray<NSNumber *> *> *)buildTreeFromMatrix:(NSArray<NSArray<NSNumber *> *> *)arr {
+    
+    NSMutableArray<NSMutableArray<NSNumber *> *> *adjMat = [[NSMutableArray alloc] initWithCapacity:arr.count * arr[0].count];
+    
+    for(NSUInteger i = 0; i < arr.count * arr[0].count; ++i) {
+        adjMat[i] = [[NSMutableArray alloc] initWithCapacity:arr.count * arr[0].count];
+        for(NSUInteger j = 0; j < arr.count * arr[0].count; ++j) {
+            adjMat[i][j] = @(NO);
+        }
+    }
+    
+    for(NSInteger i = 0; i < arr.count; ++i) {
+        for(NSInteger j = 0; j < arr[i].count; ++j) {
+            NSUInteger rowIndex = i * arr[i].count + j;
+            if(i - 1 >= 0 && arr[i-1][j].boolValue) {
+                NSUInteger t  = (i-1) * arr[i-1].count + j;
+                adjMat[rowIndex][t] = @(YES);
+            }
+            if(i + 1 < arr.count && arr[i+1][j].boolValue) {
+                NSUInteger t  = (i + 1) * arr[i+1].count + j;
+                adjMat[rowIndex][t] = @(YES);
+            }
+            if(j - 1 >= 0 && arr[i][j-1].boolValue) {
+                NSUInteger t  = (i) * arr[i].count + (j - 1);
+                adjMat[rowIndex][t] = @(YES);
+            }
+            if(j + 1 < arr[i].count && arr[i][j+1].boolValue) {
+                NSUInteger t  = (i) * arr[i].count + (j + 1);
+                adjMat[rowIndex][t] = @(YES);
+            }
+        }
+    }
+    
+    return adjMat;
 }
 
 @end

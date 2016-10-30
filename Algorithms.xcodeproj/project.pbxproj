@@ -26,6 +26,11 @@
 		CAE21BFB1D9E66A7004E5763 /* Sorting.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21BFA1D9E66A7004E5763 /* Sorting.m */; };
 		CAE21C001DA0C35E004E5763 /* Heap.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21BFF1DA0C35E004E5763 /* Heap.m */; };
 		CAE21C041DA10CAB004E5763 /* PriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE21C031DA10CAB004E5763 /* PriorityQueue.m */; };
+		CAE977F01DC4A8B400703A83 /* GraphNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE977EF1DC4A8B400703A83 /* GraphNode.m */; };
+		CAE977F31DC4AB5C00703A83 /* GraphNodeData.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE977F21DC4AB5C00703A83 /* GraphNodeData.m */; };
+		CAE977F61DC4B8B400703A83 /* PNQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE977F51DC4B8B400703A83 /* PNQueue.m */; };
+		CAE977FA1DC504D900703A83 /* PNTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE977F91DC504D900703A83 /* PNTableViewController.m */; };
+		CAE977FE1DC505E500703A83 /* PNTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE977FD1DC505E500703A83 /* PNTableViewCell.m */; };
 		CAF80F871DB36219000001A4 /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF80F861DB36219000001A4 /* Map.m */; };
 		CAFB47A01DBE69BE00C888BF /* RBLTree.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFB479F1DBE69BE00C888BF /* RBLTree.m */; };
 		CAFB47A31DBE69F000C888BF /* RBLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFB47A21DBE69F000C888BF /* RBLNode.m */; };
@@ -91,6 +96,16 @@
 		CAE21C021DA10CAB004E5763 /* PriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriorityQueue.h; sourceTree = "<group>"; };
 		CAE21C031DA10CAB004E5763 /* PriorityQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriorityQueue.m; sourceTree = "<group>"; };
 		CAE21C051DA2E5C3004E5763 /* Tips.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tips.h; sourceTree = "<group>"; };
+		CAE977EE1DC4A8B400703A83 /* GraphNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphNode.h; sourceTree = "<group>"; };
+		CAE977EF1DC4A8B400703A83 /* GraphNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphNode.m; sourceTree = "<group>"; };
+		CAE977F11DC4AB5C00703A83 /* GraphNodeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphNodeData.h; path = CareerCup/GraphNodeData.h; sourceTree = "<group>"; };
+		CAE977F21DC4AB5C00703A83 /* GraphNodeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphNodeData.m; path = CareerCup/GraphNodeData.m; sourceTree = "<group>"; };
+		CAE977F41DC4B8B400703A83 /* PNQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNQueue.h; path = Queue/PNQueue.h; sourceTree = "<group>"; };
+		CAE977F51DC4B8B400703A83 /* PNQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNQueue.m; path = Queue/PNQueue.m; sourceTree = "<group>"; };
+		CAE977F81DC504D900703A83 /* PNTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNTableViewController.h; path = ViewControllers/PNTableViewController.h; sourceTree = "<group>"; };
+		CAE977F91DC504D900703A83 /* PNTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNTableViewController.m; path = ViewControllers/PNTableViewController.m; sourceTree = "<group>"; };
+		CAE977FC1DC505E500703A83 /* PNTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNTableViewCell.h; path = Views/PNTableViewCell.h; sourceTree = "<group>"; };
+		CAE977FD1DC505E500703A83 /* PNTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNTableViewCell.m; path = Views/PNTableViewCell.m; sourceTree = "<group>"; };
 		CAF80F851DB36219000001A4 /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
 		CAF80F861DB36219000001A4 /* Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map.m; sourceTree = "<group>"; };
 		CAFB479E1DBE69BE00C888BF /* RBLTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBLTree.h; path = RBLTree/RBLTree.h; sourceTree = "<group>"; };
@@ -151,6 +166,10 @@
 				CA0DC0B71DA9512D008E5FA3 /* CareerCupAlgorithms.m */,
 				CAFF79911DBB4BE6002CFAD3 /* CCMutableNumber.h */,
 				CAFF79921DBB4BE6002CFAD3 /* CCMutableNumber.m */,
+				CAE977EE1DC4A8B400703A83 /* GraphNode.h */,
+				CAE977EF1DC4A8B400703A83 /* GraphNode.m */,
+				CAE977F11DC4AB5C00703A83 /* GraphNodeData.h */,
+				CAE977F21DC4AB5C00703A83 /* GraphNodeData.m */,
 			);
 			name = CareerCup;
 			path = ..;
@@ -204,8 +223,8 @@
 			children = (
 				CAE21BC91D9E6656004E5763 /* AppDelegate.h */,
 				CAE21BCA1D9E6656004E5763 /* AppDelegate.m */,
-				CAE21BCC1D9E6656004E5763 /* ViewController.h */,
-				CAE21BCD1D9E6656004E5763 /* ViewController.m */,
+				CAE977FF1DC505F400703A83 /* Views */,
+				CAE977FB1DC5057F00703A83 /* ViewControllers */,
 				CAE21C011DA0D863004E5763 /* Algorithms-Prefix.pch */,
 				CAE21BCF1D9E6656004E5763 /* Main.storyboard */,
 				CAE21BD21D9E6656004E5763 /* Assets.xcassets */,
@@ -214,6 +233,7 @@
 				CAE21BC61D9E6656004E5763 /* Supporting Files */,
 				CAFB479D1DBE699500C888BF /* RBL-Tree */,
 				CA2A6ADB1DB0EC170025CC8F /* Maps */,
+				CAE977F71DC4B8BB00703A83 /* Queue */,
 				CAFF79941DBB515C002CFAD3 /* Stack */,
 				CA0DC0A71DA6708C008E5FA3 /* LinkList */,
 				CAFF79981DBB64CA002CFAD3 /* Graph */,
@@ -271,6 +291,37 @@
 				CAE21C031DA10CAB004E5763 /* PriorityQueue.m */,
 			);
 			name = Heaps;
+			sourceTree = "<group>";
+		};
+		CAE977F71DC4B8BB00703A83 /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				CAE977F41DC4B8B400703A83 /* PNQueue.h */,
+				CAE977F51DC4B8B400703A83 /* PNQueue.m */,
+			);
+			name = Queue;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CAE977FB1DC5057F00703A83 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CAE21BCC1D9E6656004E5763 /* ViewController.h */,
+				CAE21BCD1D9E6656004E5763 /* ViewController.m */,
+				CAE977F81DC504D900703A83 /* PNTableViewController.h */,
+				CAE977F91DC504D900703A83 /* PNTableViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CAE977FF1DC505F400703A83 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CAE977FC1DC505E500703A83 /* PNTableViewCell.h */,
+				CAE977FD1DC505E500703A83 /* PNTableViewCell.m */,
+			);
+			name = Views;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		CAFB479D1DBE699500C888BF /* RBL-Tree */ = {
@@ -441,11 +492,16 @@
 				CA2A6AE11DB0EE690025CC8F /* MapAlgorithms.m in Sources */,
 				CAE21C041DA10CAB004E5763 /* PriorityQueue.m in Sources */,
 				CA0DC0B81DA9512D008E5FA3 /* CareerCupAlgorithms.m in Sources */,
+				CAE977F31DC4AB5C00703A83 /* GraphNodeData.m in Sources */,
 				CA0DC0AA1DA670C5008E5FA3 /* LinkedList.m in Sources */,
 				CA2A6ADE1DB0EC400025CC8F /* MapNode.m in Sources */,
+				CAE977F01DC4A8B400703A83 /* GraphNode.m in Sources */,
 				CAFB47A01DBE69BE00C888BF /* RBLTree.m in Sources */,
+				CAE977F61DC4B8B400703A83 /* PNQueue.m in Sources */,
+				CAE977FA1DC504D900703A83 /* PNTableViewController.m in Sources */,
 				CAE21BCE1D9E6656004E5763 /* ViewController.m in Sources */,
 				CA0DC0B41DA6A272008E5FA3 /* SentinelLinkedList.m in Sources */,
+				CAE977FE1DC505E500703A83 /* PNTableViewCell.m in Sources */,
 				CAFF79971DBB5170002CFAD3 /* Stack.m in Sources */,
 				CAFF79931DBB4BE6002CFAD3 /* CCMutableNumber.m in Sources */,
 				CAF80F871DB36219000001A4 /* Map.m in Sources */,
