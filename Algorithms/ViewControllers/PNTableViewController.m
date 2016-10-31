@@ -42,15 +42,6 @@
     return cell;
 }
 
-//- (BOOL)canBecomeFirstResponder {
-//    return YES;
-//}
-
-//- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
-//    BOOL t = [self respondsToSelector:@selector(tappedAct:)];
-//    return t;
-//}
-
 /*
 #pragma mark - Navigation
 

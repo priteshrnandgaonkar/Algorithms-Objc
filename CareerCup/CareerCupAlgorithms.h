@@ -42,5 +42,6 @@
 
 + (NSInteger)shortestPathFromSourceToDestinationIn:(NSArray<NSArray<NSNumber *> *> *)arr sourceRow:(NSUInteger)sr sourceColumn:(NSUInteger)sc destinationRow:(NSUInteger)dr destinationColumn:(NSUInteger)dc;
 
-+ (NSMutableArray<NSMutableArray<NSNumber *> *> *)buildTreeFromMatrix:(NSArray<NSArray<NSNumber *> *> *)arr;
++ (NSMutableArray<NSString *> *)arrayOfPossibleStringsFromString:(NSString *)str withDict:(NSDictionary<NSString *, NSString *> *)dict;
+
 @end

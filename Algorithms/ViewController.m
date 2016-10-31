@@ -254,10 +254,28 @@
     @[@(YES), @(YES), @(NO), @(YES)],
     @[@(YES), @(YES), @(YES), @(YES)]
                                             ];
-    NSMutableArray *adjMat = [CareerCupAlgorithms buildTreeFromMatrix:mat2];
+//    NSMutableArray *adjMat = [CareerCupAlgorithms buildTreeFromMatrix:mat2];
     NSUInteger shortestPath = [CareerCupAlgorithms shortestPathFromSourceToDestinationIn:mat sourceRow:0 sourceColumn:0 destinationRow:1 destinationColumn:6];
     Log(@"Shortest Path %lu", shortestPath);
 
+    Log(@"Reverse Map Numbers to String");
+    NSDictionary *alpHabetsDict = @{
+                                    @("1"): @("a"), @("2"): @("b"),
+                                    @("3"): @("c"), @("4"): @("d"),
+                                    @("5"): @("e"), @("6"): @("f"),
+                                    @("7"): @("g"), @("8"): @("h"),
+                                    @("9"): @("i"), @("10"): @("j"),
+                                    @("11"): @("k"), @("12"): @("l"),
+                                    @("13"): @("m"), @("14"): @("n"),
+                                    @("15"): @("o"), @("16"): @("p"),
+                                    @("17"): @("q"), @("18"): @("r"),
+                                    @("19"): @("s"), @("20"): @("t"),
+                                    @("21"): @("u"), @("22"): @("v"),
+                                    @("23"): @("w"), @("24"): @("x"),
+                                    @("25"): @("y"), @("26"): @("z"),
+                                    };
+   NSMutableArray *possibleString = [CareerCupAlgorithms arrayOfPossibleStringsFromString:@"1626" withDict:alpHabetsDict];
+    Log(@"Possible Strings %@", possibleString);
     
 }
 

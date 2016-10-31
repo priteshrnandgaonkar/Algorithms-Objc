@@ -318,4 +318,39 @@
     return adjMat;
 }
 
++ (NSMutableArray<NSString *> *)arrayOfPossibleStringsFromString:(NSString *)str  withDict:(NSDictionary<NSString *, NSString *> *)dict {
+    
+    NSMutableArray<NSString *> *result = @[].mutableCopy;
+   
+    if(str.length == 0) {
+        return result;
+    }
+    else if(str.length == 1) {
+        return @[dict[str]].mutableCopy;
+    }
+    
+    NSString *leftString = [str substringToIndex:1];
+    NSString *subString = [str substringFromIndex:1];
+    NSMutableArray<NSString *> *arr = nil;
+    NSUInteger count = 1;
+    
+    while(dict[leftString]) {
+        if(subString.length == 0 && dict[leftString]) {
+            [result addObject:dict[leftString]];
+            break;
+        }
+        
+        arr = [[self class] arrayOfPossibleStringsFromString:subString withDict:dict];
+        
+        for (NSString *obj in arr) {
+            [result addObject:[NSString stringWithFormat:@"%@%@", dict[leftString], obj]];
+        }
+        count = count + 1;
+        leftString = [str substringToIndex:count];
+        subString = [str substringFromIndex:count];
+    }
+    
+    return result;
+}
+
 @end
