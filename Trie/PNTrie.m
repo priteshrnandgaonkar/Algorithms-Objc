@@ -179,9 +179,11 @@
 }
 
 //- (BOOL)deleteObject:(NSString *)type {
+//    
 //    if (![self containsObject:type]) {
 //        return NO;
 //    }
+//    
 //    PNTrieNode *node = self.root;
 //    NSString *temp = nil;
 //    NSUInteger i = 0;
@@ -194,6 +196,15 @@
 //        else {
 //            return NO;
 //        }
+//    }
+//    
+//    [self navigateDeletionUp:node];
+//}
+
+//- (void)navigateDeletionUp:(PNTrieNode *)node {
+//    node.isEndOfObject = NO;
+//    if(node.) {
+//        
 //    }
 //}
 
