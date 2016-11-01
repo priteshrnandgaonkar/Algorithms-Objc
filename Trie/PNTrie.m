@@ -156,11 +156,13 @@
     NSArray *arr = nil;
     
     for (NSString *keyString in dictKeys) {
+        
         arr = [self DFSFromeNode:node.childrens[keyString]];
-        if(arr.count == 0) {
+        
+        if(arr.count == 0 || node.childrens[keyString].isEndOfObject) {
             [mutArray addObject:keyString];
-            continue;
         }
+
         for (NSString *str in arr) {
             tempStr = [NSString stringWithFormat:@"%@%@", keyString, str];
             [mutArray addObject:tempStr.copy];

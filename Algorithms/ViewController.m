@@ -287,7 +287,9 @@
     [trie insertObject:@"acd"];
     [trie insertObject:@"bcd"];
     [trie insertObject:@"abe"];
+    [trie insertObject:@"ab"];
     [trie insertObject:@"a"];
+
     
     NSString *stringQuery = @"a";
     NSArray *possibleStringsFromPrefixSearch = [trie prefixSearch:stringQuery];
@@ -296,7 +298,7 @@
     
     Log(@"contains query = %@ BOOL = %d", @"a", [trie containsObject:@"a"]);
     
-    Log(@"delete query = %@ BOOL = %d", @"a", [trie deleteObject:@"a"]);
+    Log(@"delete query = %@ BOOL = %d", @"ab", [trie deleteObject:@"ab"]);
     
     Log(@"2 Possible Strings From Trie for query = %@ array = %@", stringQuery, [trie prefixSearch:stringQuery]);
     
