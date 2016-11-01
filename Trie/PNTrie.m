@@ -230,7 +230,7 @@
             return;
         }
         [parentNode removeKey:temp[0]];
-        node = parentNode.copy;
+        node = parentNode;
     }
     
 }
