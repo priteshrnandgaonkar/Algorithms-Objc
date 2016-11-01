@@ -26,7 +26,14 @@
 @property(nonatomic, readonly, strong) NSArray<NSNumber *> *array;
 @property(nonatomic, readonly, assign) BOOL shouldSortInAcendingOrder;
 
+
+- (instancetype)initWithSortingOrder:(BOOL)shouldSortInAcendingOrder;
+
 - (instancetype)initWithArray:(NSArray<NSNumber *> *)array shouldSortInAcendingOrder:(BOOL)shouldSortInAcendingOrder;
+
+- (void)insertNumber:(NSNumber *)num;
+
+- (void)deleteRoot;
 
 //Time Complexity = O(nlogn), Space Complexity = O(1)
 - (NSArray<NSNumber *> *)heapSort;

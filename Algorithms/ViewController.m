@@ -16,6 +16,7 @@
 #import "GraphAlgorithm.h"
 #import "RBLTree.h"
 #import "MapAlgorithms.h"
+#import "PNTrie.h"
 
 @interface ViewController ()
 
@@ -26,7 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSArray *arrayToSort = @[@(3),@(2),@(1),@(4),@(5),@(6),@(2),@(2),@(2),@(1),@(12),@(0)];
+    NSArray<NSNumber *> *arrayToSort = @[@(3),@(2),@(1),@(4),@(5),@(6),@(2),@(2),@(2),@(1),@(12),@(0)];
+    
+   NSArray *sortedByObjcMethod = [arrayToSort sortedArrayUsingComparator:^NSComparisonResult(NSNumber *  _Nonnull obj1, NSNumber *  _Nonnull obj2) {
+        return [obj1 compare:obj2];
+    }];
     
     NSArray *insertionSortedArray = [Sorting insertionSortOnArray:arrayToSort];
     Log("Insertion Sorted, %@", insertionSortedArray);
@@ -277,6 +282,20 @@
    NSMutableArray *possibleString = [CareerCupAlgorithms arrayOfPossibleStringsFromString:@"1626" withDict:alpHabetsDict];
     Log(@"Possible Strings %@", possibleString);
     
+    PNTrie *trie = [[PNTrie alloc] init];
+    [trie insertObject:@"abc"];
+    [trie insertObject:@"acd"];
+    [trie insertObject:@"bcd"];
+    [trie insertObject:@"abe"];
+    [trie insertObject:@"a"];
+    
+    NSString *stringQuery = @"a";
+    NSArray *possibleStringsFromPrefixSearch = [trie prefixSearch:stringQuery];
+    
+    Log(@"Possible Strings From Trie for query = %@ array = %@", stringQuery, possibleStringsFromPrefixSearch);
+    
+    Log(@"contains query = %@ BOOL = %d", @"a", [trie containsObject:@"a"]);
+
 }
 
 - (void)didReceiveMemoryWarning {

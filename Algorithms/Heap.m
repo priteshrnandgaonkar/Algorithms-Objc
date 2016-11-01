@@ -19,10 +19,65 @@
 
 - (instancetype)initWithArray:(NSArray<NSNumber *> *)array shouldSortInAcendingOrder:(BOOL)shouldSortInAcendingOrder {
     if(self = [super init]){
-        self.mutableArray = array.mutableCopy;
-        self.shouldSortInAcendingOrder = shouldSortInAcendingOrder;
+        _mutableArray = array.mutableCopy;
+        _shouldSortInAcendingOrder = shouldSortInAcendingOrder;
+    }
+    [self buildHeap];
+    return self;
+}
+
+- (instancetype)initWithSortingOrder:(BOOL)shouldSortInAcendingOrder {
+
+    self = [super init];
+    if (self) {
+        _mutableArray = @[].mutableCopy;
+        _shouldSortInAcendingOrder = shouldSortInAcendingOrder;
     }
     return self;
+}
+
+- (void)deleteRoot {
+    if(self.mutableArray.count == 0) {
+        return;
+    }
+    else {
+        NSNumber *lastNum = self.mutableArray.lastObject;
+        self.mutableArray[0] = lastNum;
+        [self.mutableArray removeLastObject];
+        [self.mutableArray insertObject:@(NSNotFound) atIndex:0];
+        [self heapifyOnArray:self.mutableArray atIndex:1 count:self.mutableArray.count];
+        [self.mutableArray removeObjectAtIndex:0];
+    }
+}
+
+- (void)insertNumber:(NSNumber *)num {
+    [self.mutableArray addObject:num];
+    
+    if(self.mutableArray.count > 0) {
+        [self heapifyUpFromIndex:self.mutableArray.count - 1];
+    }
+}
+
+- (void)heapifyUpFromIndex:(NSUInteger)idx {
+    
+    NSUInteger indexToSwap = NSNotFound;
+    if(self.mutableArray[(NSUInteger)floor(idx/2)] > self.mutableArray[idx] && self.shouldSortInAcendingOrder) {
+        NSNumber *num = self.mutableArray[(NSUInteger)floor(idx/2)];
+        self.mutableArray[(NSUInteger)floor(idx/2)] = self.mutableArray[idx];
+        self.mutableArray[idx] = num;
+        indexToSwap = (NSUInteger)floor(idx/2);
+    }
+    
+    else if(self.mutableArray[(NSUInteger)floor(idx/2)] < self.mutableArray[idx] && !self.shouldSortInAcendingOrder) {
+        NSNumber *num = self.mutableArray[(NSUInteger)floor(idx/2)];
+        self.mutableArray[(NSUInteger)floor(idx/2)] = self.mutableArray[idx];
+        self.mutableArray[idx] = num;
+        indexToSwap = (NSUInteger)floor(idx/2);
+    }
+    
+    if (indexToSwap != NSNotFound) {
+        [self heapifyUpFromIndex:indexToSwap];
+    }
 }
 
 - (NSArray<NSNumber *> *)array{

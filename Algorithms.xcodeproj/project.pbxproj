@@ -34,6 +34,7 @@
 		CAF80F871DB36219000001A4 /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF80F861DB36219000001A4 /* Map.m */; };
 		CAFB47A01DBE69BE00C888BF /* RBLTree.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFB479F1DBE69BE00C888BF /* RBLTree.m */; };
 		CAFB47A31DBE69F000C888BF /* RBLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFB47A21DBE69F000C888BF /* RBLNode.m */; };
+		CAFDA7C21DC8925B00ED473E /* PNTrie.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFDA7C11DC8925B00ED473E /* PNTrie.m */; };
 		CAFF79931DBB4BE6002CFAD3 /* CCMutableNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFF79921DBB4BE6002CFAD3 /* CCMutableNumber.m */; };
 		CAFF79971DBB5170002CFAD3 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFF79961DBB5170002CFAD3 /* Stack.m */; };
 		CAFF799B1DBB653A002CFAD3 /* GraphAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = CAFF799A1DBB653A002CFAD3 /* GraphAlgorithm.m */; };
@@ -112,6 +113,8 @@
 		CAFB479F1DBE69BE00C888BF /* RBLTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBLTree.m; path = RBLTree/RBLTree.m; sourceTree = "<group>"; };
 		CAFB47A11DBE69F000C888BF /* RBLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBLNode.h; path = RBLTree/RBLNode.h; sourceTree = "<group>"; };
 		CAFB47A21DBE69F000C888BF /* RBLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBLNode.m; path = RBLTree/RBLNode.m; sourceTree = "<group>"; };
+		CAFDA7C01DC8925B00ED473E /* PNTrie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNTrie.h; path = Trie/PNTrie.h; sourceTree = "<group>"; };
+		CAFDA7C11DC8925B00ED473E /* PNTrie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNTrie.m; path = Trie/PNTrie.m; sourceTree = "<group>"; };
 		CAFF79911DBB4BE6002CFAD3 /* CCMutableNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMutableNumber.h; sourceTree = "<group>"; };
 		CAFF79921DBB4BE6002CFAD3 /* CCMutableNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMutableNumber.m; sourceTree = "<group>"; };
 		CAFF79951DBB5170002CFAD3 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
@@ -231,6 +234,7 @@
 				CAE21BD41D9E6656004E5763 /* LaunchScreen.storyboard */,
 				CAE21BD71D9E6656004E5763 /* Info.plist */,
 				CAE21BC61D9E6656004E5763 /* Supporting Files */,
+				CAFDA7C31DC8929B00ED473E /* Trie */,
 				CAFB479D1DBE699500C888BF /* RBL-Tree */,
 				CA2A6ADB1DB0EC170025CC8F /* Maps */,
 				CAE977F71DC4B8BB00703A83 /* Queue */,
@@ -333,6 +337,16 @@
 				CAFB47A21DBE69F000C888BF /* RBLNode.m */,
 			);
 			name = "RBL-Tree";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CAFDA7C31DC8929B00ED473E /* Trie */ = {
+			isa = PBXGroup;
+			children = (
+				CAFDA7C01DC8925B00ED473E /* PNTrie.h */,
+				CAFDA7C11DC8925B00ED473E /* PNTrie.m */,
+			);
+			name = Trie;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -502,6 +516,7 @@
 				CAE21BCE1D9E6656004E5763 /* ViewController.m in Sources */,
 				CA0DC0B41DA6A272008E5FA3 /* SentinelLinkedList.m in Sources */,
 				CAE977FE1DC505E500703A83 /* PNTableViewCell.m in Sources */,
+				CAFDA7C21DC8925B00ED473E /* PNTrie.m in Sources */,
 				CAFF79971DBB5170002CFAD3 /* Stack.m in Sources */,
 				CAFF79931DBB4BE6002CFAD3 /* CCMutableNumber.m in Sources */,
 				CAF80F871DB36219000001A4 /* Map.m in Sources */,
