@@ -295,6 +295,16 @@
     Log(@"Possible Strings From Trie for query = %@ array = %@", stringQuery, possibleStringsFromPrefixSearch);
     
     Log(@"contains query = %@ BOOL = %d", @"a", [trie containsObject:@"a"]);
+    
+    Log(@"delete query = %@ BOOL = %d", @"a", [trie deleteObject:@"a"]);
+    
+    Log(@"2 Possible Strings From Trie for query = %@ array = %@", stringQuery, [trie prefixSearch:stringQuery]);
+    
+    NSString *tStr = @"poi";
+    NSMutableString *mtStr =@"poi".mutableCopy;
+    NSMutableArray *arrtr = @[tStr, mtStr].mutableCopy;
+    tStr = @"oip";
+    [mtStr replaceCharactersInRange:NSMakeRange(0, 2) withString:@"change"];
 
 }
 

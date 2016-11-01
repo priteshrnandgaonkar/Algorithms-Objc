@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PNTrieNode : NSObject
+@interface PNTrieNode : NSObject<NSCopying>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init;
 - (void)insertChildKey:(NSString *)key;
+- (void)removeKey:(NSString *)key;
 
 NS_ASSUME_NONNULL_END
 
@@ -34,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)insertObject:(NSString *)type;
 - (NSArray<NSString *> *)prefixSearch:(NSString *)type;
 - (BOOL)containsObject:(NSString *)type;
-//- (BOOL)deleteObject:(NSString *)type;
+- (BOOL)deleteObject:(NSString *)type;
 
 NS_ASSUME_NONNULL_END
 

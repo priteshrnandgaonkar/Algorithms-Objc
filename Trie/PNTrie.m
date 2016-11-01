@@ -29,6 +29,9 @@
 - (void)insertChildKey:(NSString *)key {
     self.mutChildrens[key] = [[PNTrieNode alloc] init];
 }
+- (void)removeKey:(NSString *)key {
+    [self.mutChildrens removeObjectForKey:key];
+}
 
 - (NSDictionary<NSString *,PNTrieNode *> *)childrens {
     
@@ -40,6 +43,13 @@
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"childerens: %@, endOfWord: %d", self.mutChildrens, self.isEndOfObject];
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+    PNTrieNode *node = [[[self class] allocWithZone:zone] init];
+    node.mutChildrens = [self.mutChildrens mutableCopyWithZone:zone];
+    node.isEndOfObject = self.isEndOfObject;
+    return node;
 }
 
 @end
@@ -178,34 +188,49 @@
     return node.isEndOfObject;
 }
 
-//- (BOOL)deleteObject:(NSString *)type {
-//    
-//    if (![self containsObject:type]) {
-//        return NO;
-//    }
-//    
-//    PNTrieNode *node = self.root;
-//    NSString *temp = nil;
-//    NSUInteger i = 0;
-//    
-//    for (i = 0; i < type.length; ++i) {
-//        temp =  [NSString stringWithFormat:@"%C", [type characterAtIndex:i]];
-//        if(node.childrens[temp]) {
-//            node = node.childrens[temp];
-//        }
-//        else {
-//            return NO;
-//        }
-//    }
-//    
-//    [self navigateDeletionUp:node];
-//}
+- (BOOL)deleteObject:(NSString *)type {
+    
+    if (![self containsObject:type]) {
+        return NO;
+    }
+    
+    PNTrieNode *node = self.root;
+    NSString *temp = nil;
+    NSUInteger i = 0;
+    Stack<PNTrieNode *> *st = [[Stack alloc] init];
+    
+    for (i = 0; i < type.length; ++i) {
+        temp =  [NSString stringWithFormat:@"%C", [type characterAtIndex:i]];
+        if(node.childrens[temp]) {
+            [st push:node];
+            node = node.childrens[temp];
+        }
+        else {
+            return NO;
+        }
+    }
+    node.isEndOfObject = NO;
+    [self navigateDeletionUpFromNode:node withStack:st];
+    return true;
+}
 
-//- (void)navigateDeletionUp:(PNTrieNode *)node {
-//    node.isEndOfObject = NO;
-//    if(node.) {
-//        
-//    }
-//}
+- (void)navigateDeletionUpFromNode:(PNTrieNode *)baseNode withStack:(Stack<PNTrieNode *> *)stack {
+    
+    PNTrieNode *node = baseNode;
+    PNTrieNode *parentNode = nil;
+    NSArray *temp = nil;
+
+    while(node.childrens.allKeys.count == 0 && stack.count > 0) {
+
+        parentNode = stack.pop;
+        temp = [parentNode.childrens allKeysForObject:node];
+        if(temp.count > 1 || temp.count == 0) {
+            return;
+        }
+        [parentNode removeKey:temp[0]];
+        node = parentNode.copy;
+    }
+    
+}
 
 @end
