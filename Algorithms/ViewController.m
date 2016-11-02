@@ -299,7 +299,7 @@
     Log(@"contains query = %@ BOOL = %d", @"a", [trie containsObject:@"a"]);
     
     Log(@"delete query = %@ BOOL = %d", @"ab", [trie deleteObject:@"ab"]);
-     Log(@"delete query = %@ BOOL = %d", @"bcd", [trie deleteObject:@"bcd"]);
+    Log(@"delete query = %@ BOOL = %d", @"bcd", [trie deleteObject:@"bcd"]);
     
     Log(@"2 Possible Strings From Trie for query = %@ array = %@", @"b", [trie prefixSearch:@"a"]);
     
@@ -312,7 +312,20 @@
     NSMutableArray *arrtr = @[tStr, mtStr].mutableCopy;
     tStr = @"oip";
     [mtStr replaceCharactersInRange:NSMakeRange(0, 2) withString:@"change"];
+    
+    CGPoint t =CGPointMake( 0 , 0);
+    NSMutableArray *marr = @[].mutableCopy;
+    [marr addObject:[NSValue valueWithCGPoint:t]];
 
+    NSArray<NSArray<NSNumber *> *> *coinsMat = @[
+                                             @[@(10), @(0), @(0), @(0)],
+                                             @[@(0), @(1), @(5), @(20)],
+                                             @[@(10), @(4), @(0), @(21)]
+                                             ];
+    NSUInteger maxCoins = [CareerCupAlgorithms maxNumberOfCoinsFromMatrix:coinsMat];
+    
+    Log("MAX Coins Collected %lu", maxCoins);
+    
 }
 
 - (void)didReceiveMemoryWarning {

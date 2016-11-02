@@ -353,4 +353,31 @@
     return result;
 }
 
++ (NSUInteger)maxNumberOfCoinsFromMatrix:(NSArray<NSArray<NSNumber *> *> *)arr {
+    return [[self class] maxNumberOfCoinsFromMatrix:arr sourceX:0 sourceY:0 history:@{}.mutableCopy];
+}
+
++ (NSUInteger)maxNumberOfCoinsFromMatrix:(NSArray<NSArray<NSNumber *> *> *)arr sourceX:(NSUInteger)sourceX sourceY:(NSUInteger)sourceY history:(NSMutableDictionary<NSValue *,  NSNumber *> *)history {
+    
+    CGPoint point = CGPointMake(sourceX, sourceY);
+
+    if (history[[NSValue valueWithCGPoint:point]]) {
+        return history[[NSValue valueWithCGPoint:point]].integerValue;
+    }
+    
+    NSUInteger max = 0;
+    NSUInteger temp = 0;
+    for (NSUInteger i = 1; sourceX + i < arr.count; ++i) {
+        for (NSUInteger j = 1; sourceY + j < arr[i].count; ++j) {
+            temp = [[self class] maxNumberOfCoinsFromMatrix:arr sourceX:sourceX + i sourceY:sourceY + j history:history];
+            if (max < temp) {
+                max = temp;
+            }
+        }
+    }
+    
+    history[[NSValue valueWithCGPoint:point]] = @(max + arr[sourceX][sourceY].integerValue);
+    return max + arr[sourceX][sourceY].integerValue;
+}
+
 @end

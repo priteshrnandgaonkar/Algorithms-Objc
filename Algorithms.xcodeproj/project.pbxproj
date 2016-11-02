@@ -167,12 +167,8 @@
 			children = (
 				CA0DC0B61DA9512D008E5FA3 /* CareerCupAlgorithms.h */,
 				CA0DC0B71DA9512D008E5FA3 /* CareerCupAlgorithms.m */,
-				CAFF79911DBB4BE6002CFAD3 /* CCMutableNumber.h */,
-				CAFF79921DBB4BE6002CFAD3 /* CCMutableNumber.m */,
-				CAE977EE1DC4A8B400703A83 /* GraphNode.h */,
-				CAE977EF1DC4A8B400703A83 /* GraphNode.m */,
-				CAE977F11DC4AB5C00703A83 /* GraphNodeData.h */,
-				CAE977F21DC4AB5C00703A83 /* GraphNodeData.m */,
+				CA7B5FA01DCA006C000EFF8D /* CCMutableNumber */,
+				CA7B5F9F1DC9FFF6000EFF8D /* GraphNode */,
 			);
 			name = CareerCup;
 			path = ..;
@@ -199,6 +195,26 @@
 			);
 			name = Arrays;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		CA7B5F9F1DC9FFF6000EFF8D /* GraphNode */ = {
+			isa = PBXGroup;
+			children = (
+				CAE977EE1DC4A8B400703A83 /* GraphNode.h */,
+				CAE977EF1DC4A8B400703A83 /* GraphNode.m */,
+				CAE977F11DC4AB5C00703A83 /* GraphNodeData.h */,
+				CAE977F21DC4AB5C00703A83 /* GraphNodeData.m */,
+			);
+			name = GraphNode;
+			sourceTree = "<group>";
+		};
+		CA7B5FA01DCA006C000EFF8D /* CCMutableNumber */ = {
+			isa = PBXGroup;
+			children = (
+				CAFF79911DBB4BE6002CFAD3 /* CCMutableNumber.h */,
+				CAFF79921DBB4BE6002CFAD3 /* CCMutableNumber.m */,
+			);
+			name = CCMutableNumber;
 			sourceTree = "<group>";
 		};
 		CAE21BBA1D9E6656004E5763 = {

@@ -44,4 +44,13 @@
 
 + (NSMutableArray<NSString *> *)arrayOfPossibleStringsFromString:(NSString *)str withDict:(NSDictionary<NSString *, NSString *> *)dict;
 
+/*
+ There are N coins with coordinates (x, y) where x >0 and y >0
+ You start at (0, 0) and you can only do steps of form (dx, dy) where dx > 0 and dy > 0
+ Print the maximum number of coins that you can collect.
+ 
+ Clarification: you can do as many moves as you wish, the point is to collect maximum number of coins. If you are located at position (a, b) you may jump to position (a+dx, b+dy) for all dx > 0 and dy > 0
+ */
++ (NSUInteger)maxNumberOfCoinsFromMatrix:(NSArray<NSArray<NSNumber *> *> *)arr;
+
 @end
