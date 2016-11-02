@@ -303,6 +303,10 @@
     
     Log(@"2 Possible Strings From Trie for query = %@ array = %@", @"b", [trie prefixSearch:@"a"]);
     
+    NSArray *nthSmallestArray = @[@(3), @(16), @(1), @(20), @(45), @(0), @(23)];
+    NSNumber *num = [Sorting nthSmallestNumberinArray:@[@(3), @(16), @(1), @(20), @(45), @(0), @(23)] n: 1];
+    Log(@"%dth in %@ is %@", 1, nthSmallestArray, num);
+    
     NSString *tStr = @"poi";
     NSMutableString *mtStr =@"poi".mutableCopy;
     NSMutableArray *arrtr = @[tStr, mtStr].mutableCopy;

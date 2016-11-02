@@ -247,4 +247,37 @@
     
 }
 
++ (NSNumber *)nthSmallestNumberinArray:(NSArray<NSNumber *> *)array n:(NSUInteger)n {
+
+    NSInteger idx = (NSInteger)(arc4random_uniform(array.count - 1));
+    NSMutableArray *mutArray = array.mutableCopy;
+    
+    // Swap Numbers
+    NSNumber *temp = mutArray[idx];
+    [mutArray removeObjectAtIndex:idx];
+    [mutArray addObject:temp];
+    
+    NSUInteger leftIndex = 0;
+    for (NSUInteger i = 0; i < mutArray.count - 1; ++i) {
+        if ([mutArray[i] compare: mutArray.lastObject] == NSOrderedAscending) {
+            [mutArray insertObject:mutArray[i] atIndex:leftIndex];
+            [mutArray removeObjectAtIndex:i + 1];
+            leftIndex += 1;
+        }
+    }
+    
+    [mutArray insertObject:mutArray.lastObject atIndex:leftIndex];
+    [mutArray removeLastObject];
+    
+    if(leftIndex == n - 1) {
+        return mutArray[leftIndex];
+    }
+    else if (leftIndex < (n - 1)) {
+        return [[self class] nthSmallestNumberinArray:[mutArray subarrayWithRange:NSMakeRange(leftIndex + 1, mutArray.count - leftIndex)] n: (n - leftIndex - 1)];
+    }
+    else {
+        return [[self class] nthSmallestNumberinArray:[mutArray subarrayWithRange:NSMakeRange(0, leftIndex + 1)] n: n];
+    }
+}
+
 @end
