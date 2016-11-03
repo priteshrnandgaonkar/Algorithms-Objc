@@ -286,6 +286,10 @@
     [trie insertObject:@"abc"];
     [trie insertObject:@"acd"];
     [trie insertObject:@"bcd"];
+    [trie insertObject:@"cat"];
+    [trie insertObject:@"cot"];
+    [trie insertObject:@"cit"];
+    [trie insertObject:@"cut"];
     [trie insertObject:@"abe"];
     [trie insertObject:@"ab"];
     [trie insertObject:@"a"];
@@ -302,6 +306,8 @@
     Log(@"delete query = %@ BOOL = %d", @"bcd", [trie deleteObject:@"bcd"]);
     
     Log(@"2 Possible Strings From Trie for query = %@ array = %@", @"b", [trie prefixSearch:@"a"]);
+    
+    Log(@"GREP c.sdt is %@", [trie grepWord:@"c.sdt"]);
     
     NSArray *nthSmallestArray = @[@(3), @(16), @(1), @(20), @(45), @(0), @(23)];
     NSNumber *num = [Sorting nthSmallestNumberinArray:@[@(3), @(16), @(1), @(20), @(45), @(0), @(23)] n: 1];

@@ -36,6 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray<NSString *> *)prefixSearch:(NSString *)type;
 - (BOOL)containsObject:(NSString *)type;
 - (BOOL)deleteObject:(NSString *)type;
+- (NSArray<NSString *> *)grepWord:(NSString *)query;
 
 NS_ASSUME_NONNULL_END
 

@@ -232,7 +232,65 @@
         [parentNode removeKey:temp[0]];
         node = parentNode;
     }
+}
+
+- (NSArray<NSString *> *)grepWord:(NSString *)query {
+    return [self grepWord:query node:self.root];
+}
+
+- (NSArray<NSString *> *)grepWord:(NSString *)query node:(PNTrieNode *)node {
     
+    //Base condition when query length is 1-- remaining
+    if (query.length == 0) {
+        return @[];
+    }
+    
+    NSString *queryChar = [NSString stringWithFormat:@"%C", [query characterAtIndex:0]];
+    
+    NSArray<NSString *> *arrayFromChildrens = nil;
+    
+    if (node.childrens[queryChar]) {
+        // Append qurychar into result from node.childrens[queryChar]
+        arrayFromChildrens = [self grepWord:[query substringFromIndex:1] node: node.childrens[queryChar]];
+        if (arrayFromChildrens) {
+            return [self preAppendString:queryChar inArray: arrayFromChildrens];
+        }
+        else {
+            return nil;
+        }
+    }
+    else if ([queryChar isEqualToString:@"."]) {
+        
+        NSMutableArray *mutArray = @[].mutableCopy;
+        
+        for (NSString *key in node.childrens.allKeys) {
+            
+            arrayFromChildrens = [self grepWord:[query substringFromIndex:1] node: node.childrens[key]];
+            if (arrayFromChildrens) {
+                continue;
+            }
+            [mutArray addObjectsFromArray:[self preAppendString:key inArray:arrayFromChildrens]];
+        }
+        
+        return mutArray.count == 0 ? nil : [NSArray arrayWithArray: mutArray];
+    }
+    else {
+        return nil;
+    }
+}
+
+- (NSArray<NSString *> *)preAppendString:(NSString *)prefix inArray:(NSArray<NSString *> *)arr {
+    
+    NSMutableArray<NSString *> *mutArray = @[].mutableCopy;
+    NSString *tempStr = nil;
+    if (arr && arr.count == 0) {
+        return @[prefix];
+    }
+    for (NSString *str in arr) {
+        tempStr = [NSString stringWithFormat:@"%@%@", prefix, str];
+        [mutArray addObject:tempStr];
+    }
+    return [NSArray arrayWithArray:mutArray];
 }
 
 @end
