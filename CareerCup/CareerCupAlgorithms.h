@@ -53,4 +53,32 @@
  */
 + (NSUInteger)maxNumberOfCoinsFromMatrix:(NSArray<NSArray<NSNumber *> *> *)arr;
 
+/*
+ GIven a string "str" and pair of "N" swapping indices, generate a lexicographically largest string. Swapping indices can be reused any number times.
+ 
+ Eg 1)
+ 
+ String = "abdc"
+ 
+ Indices:
+ 
+ (1,4)
+ 
+ (3,4)
+ 
+ Answer:
+ 
+ cdba, cbad, dbac,dbca
+ 
+ ​you should print only "dbca" which is lexicographically largest.
+ 
+ Solution:- 
+    Consider indices as vertices.
+    Connect two vertices with an edge if swapping is allowed between them
+ 
+    Now for each connected component in graph sort the characters represented by the indices(vertex) and place them from highest value to lowest value in those indices.
+ 
+    Result would be a lexicographically largest string.
+ */
+
 @end
