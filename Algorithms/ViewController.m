@@ -352,9 +352,13 @@
     
     Log("MAX Coins Collected %lu", maxCoins);
     
-    NSNumber *fibNumber = [DPAlgo nthFibonacciNumber:6];
+    NSNumber *fibNumber = [DPAlgo nthFibonacciNumber:5];
     
-    Log(@"%dth Fibonacci number is %@", 6, fibNumber);
+    Log(@"%dth Fibonacci number is %@", 5, fibNumber);
+    
+    NSString *exprString = @"5*4-3*2";
+    NSArray *possibleResults = [DPAlgo allPossibleValues:exprString];
+    Log(@"All possible values of %@ is %@", exprString, possibleResults);
 }
 
 - (void)didReceiveMemoryWarning {

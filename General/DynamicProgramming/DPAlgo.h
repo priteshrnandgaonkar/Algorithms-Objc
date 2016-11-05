@@ -12,4 +12,6 @@
 
 + (NSNumber  *)nthFibonacciNumber:(NSUInteger)n;
 
++ (NSArray<NSNumber *> *)allPossibleValues:(NSString *)expr;
+
 @end
