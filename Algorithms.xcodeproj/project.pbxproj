@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		214925B21DCE275200C7BEC1 /* DPAlgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 214925B11DCE275200C7BEC1 /* DPAlgo.m */; };
 		CA0DC0AA1DA670C5008E5FA3 /* LinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0A91DA670C5008E5FA3 /* LinkedList.m */; };
 		CA0DC0AD1DA67AC6008E5FA3 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0AC1DA67AC6008E5FA3 /* Node.m */; };
 		CA0DC0B11DA689FC008E5FA3 /* LinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0B01DA689FC008E5FA3 /* LinkedListTests.m */; };
@@ -58,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		214925B01DCE275200C7BEC1 /* DPAlgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPAlgo.h; path = General/DynamicProgramming/DPAlgo.h; sourceTree = "<group>"; };
+		214925B11DCE275200C7BEC1 /* DPAlgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPAlgo.m; path = General/DynamicProgramming/DPAlgo.m; sourceTree = "<group>"; };
 		CA0DC0A81DA670C5008E5FA3 /* LinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinkedList.h; path = Algorithms/LinkedList.h; sourceTree = "<group>"; };
 		CA0DC0A91DA670C5008E5FA3 /* LinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinkedList.m; path = Algorithms/LinkedList.m; sourceTree = "<group>"; };
 		CA0DC0AB1DA67AC6008E5FA3 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
@@ -148,6 +151,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		214925AE1DCE26E700C7BEC1 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				214925AF1DCE270F00C7BEC1 /* DynamicProgramming */,
+			);
+			name = General;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		214925AF1DCE270F00C7BEC1 /* DynamicProgramming */ = {
+			isa = PBXGroup;
+			children = (
+				214925B01DCE275200C7BEC1 /* DPAlgo.h */,
+				214925B11DCE275200C7BEC1 /* DPAlgo.m */,
+			);
+			name = DynamicProgramming;
+			sourceTree = "<group>";
+		};
 		CA0DC0A71DA6708C008E5FA3 /* LinkList */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +271,7 @@
 				CAE21BD41D9E6656004E5763 /* LaunchScreen.storyboard */,
 				CAE21BD71D9E6656004E5763 /* Info.plist */,
 				CAE21BC61D9E6656004E5763 /* Supporting Files */,
+				214925AE1DCE26E700C7BEC1 /* General */,
 				CAFDA7C31DC8929B00ED473E /* Trie */,
 				CAFB479D1DBE699500C888BF /* RBL-Tree */,
 				CA2A6ADB1DB0EC170025CC8F /* Maps */,
@@ -538,6 +560,7 @@
 				CAF80F871DB36219000001A4 /* Map.m in Sources */,
 				CAE21BCB1D9E6656004E5763 /* AppDelegate.m in Sources */,
 				CAFB47A31DBE69F000C888BF /* RBLNode.m in Sources */,
+				214925B21DCE275200C7BEC1 /* DPAlgo.m in Sources */,
 				CA0DC0AD1DA67AC6008E5FA3 /* Node.m in Sources */,
 				CAE21BFB1D9E66A7004E5763 /* Sorting.m in Sources */,
 				CAFF799B1DBB653A002CFAD3 /* GraphAlgorithm.m in Sources */,

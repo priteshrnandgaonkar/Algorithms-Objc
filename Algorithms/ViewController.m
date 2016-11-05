@@ -17,8 +17,12 @@
 #import "RBLTree.h"
 #import "MapAlgorithms.h"
 #import "PNTrie.h"
+#import "DPAlgo.h"
 
 @interface ViewController ()
+
+@property (copy, nonatomic) void(^testBlock)();
+@property (strong, nonatomic) NSString *viewControllerString;
 
 @end
 
@@ -26,6 +30,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.viewControllerString = @"My string";
+    NSMutableString *tString = @"local String".mutableCopy;
+    self.testBlock = ^{
+        
+        Log(@"Local string %@", tString);
+//        Log(@"My string %@", self.viewControllerString);
+    };
+    self.testBlock();
+    [tString replaceCharactersInRange:[tString rangeOfString:@"local"] withString:@"Pritesh's local"];
+    self.viewControllerString = @"My modified string";
+    self.testBlock();
+    
+    NSLog(@"Retain count of tString is %ld", CFGetRetainCount((__bridge CFTypeRef)tString));
+    NSLog(@"Retain count of self is %ld", CFGetRetainCount((__bridge CFTypeRef)self));
+
+    
 
     NSArray<NSNumber *> *arrayToSort = @[@(3),@(2),@(1),@(4),@(5),@(6),@(2),@(2),@(2),@(1),@(12),@(0)];
     
@@ -332,6 +352,9 @@
     
     Log("MAX Coins Collected %lu", maxCoins);
     
+    NSNumber *fibNumber = [DPAlgo nthFibonacciNumber:6];
+    
+    Log(@"%dth Fibonacci number is %@", 6, fibNumber);
 }
 
 - (void)didReceiveMemoryWarning {
