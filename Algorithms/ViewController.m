@@ -359,6 +359,14 @@
     NSString *exprString = @"5*4-3*2";
     NSArray *possibleResults = [DPAlgo allPossibleValues:exprString];
     Log(@"All possible values of %@ is %@", exprString, possibleResults);
+    
+    NSUInteger lis = [DPAlgo maximumIncreasingSubSequence: @[@(10), @(22), @(9), @(33), @(21), @(50), @(41), @(60), @(8) ]];
+    
+    
+    Log(@"Longest increseing subseq in %@ is %lu",@[@(10), @(22), @(9), @(33), @(21), @(50), @(41), @(60), @(8) ], lis);
+    NSArray *logestSubSeq = [DPAlgo longestIncreasingSubSequence: @[@(10), @(22), @(9), @(33), @(21), @(50), @(41), @(60), @(8) ]];
+    
+    Log(@"Longest Possible subseq is %@", logestSubSeq);
 }
 
 - (void)didReceiveMemoryWarning {

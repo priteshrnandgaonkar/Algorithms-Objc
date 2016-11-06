@@ -14,4 +14,9 @@
 
 + (NSArray<NSNumber *> *)allPossibleValues:(NSString *)expr;
 
++ (NSUInteger)maximumIncreasingSubSequence:(NSArray<NSNumber *> *)arr;
+
++ (NSUInteger)maximumIncreasingSubSequence:(NSArray<NSNumber *> *)arr dict:(NSMutableDictionary<NSNumber *, NSNumber *> *)dict;
+
++ (NSArray<NSNumber *> *)longestIncreasingSubSequence:(NSArray<NSNumber *> *)arr;
 @end

@@ -130,4 +130,67 @@
     return isOperator;
 }
 
++(NSUInteger)maximumIncreasingSubSequence:(NSArray<NSNumber *> *)arr {
+    return [self maximumIncreasingSubSequence:arr dict: @{}.mutableCopy history:@[].mutableCopy];
+}
+
++ (NSArray<NSNumber *> *)longestIncreasingSubSequence:(NSArray<NSNumber *> *)arr {
+    
+    NSMutableArray<NSNumber *> *mutArray = @[].mutableCopy;
+    NSMutableDictionary<NSNumber *, NSNumber *> *mutDict = @{}.mutableCopy;
+    
+    NSUInteger count = [self maximumIncreasingSubSequence:arr dict:mutDict history:mutArray];
+    
+    NSNumber *max = @(count);
+    NSUInteger maxIndex = [mutArray indexOfObject:max];
+    
+    NSMutableArray<NSNumber *> *subSeq = @[].mutableCopy;
+    
+    for (NSUInteger i = 0; i < max.integerValue; ++i) {
+        [subSeq addObject:arr[maxIndex]];
+        maxIndex = mutDict[@(maxIndex)].integerValue;
+    }
+    return [NSArray arrayWithArray:subSeq];
+}
+
++ (NSUInteger)maximumIncreasingSubSequence:(NSArray<NSNumber *> *)arr dict:(NSMutableDictionary<NSNumber *, NSNumber *> *)dict history:(NSMutableArray<NSNumber *> *)history {
+    
+    for (NSNumber *num in arr) {
+        [history addObject:@(1)];
+    }
+    
+    NSUInteger max = 1;
+    NSUInteger index = NSNotFound;
+    for (NSUInteger i = 1; i < arr.count; ++i) {
+        max = 0;
+        index = i;
+        for (NSUInteger j = 0; j < i; ++j) {
+            if (arr[i].integerValue > arr[j].integerValue) {
+                if(max < history[j].integerValue) {
+                    max = history[j].integerValue;
+                    index = j;
+                }
+            }
+        }
+        
+        dict[@(i)] = @(index);
+        history[i] = @(max + 1);
+    }
+    NSNumber *maxInArray = [self maxInArray:history];
+    
+    return maxInArray.integerValue;
+}
+
++ (NSNumber *)maxInArray:(NSArray<NSNumber *> *)arr {
+    NSNumber *maxNum = @(0);
+    
+    for (NSNumber *num in arr) {
+        if ([maxNum compare:num] == NSOrderedAscending) {
+            maxNum = num;
+        }
+    }
+    
+    return maxNum;
+}
+
 @end
