@@ -18,6 +18,7 @@
 #import "MapAlgorithms.h"
 #import "PNTrie.h"
 #import "DPAlgo.h"
+#import "GraphEdge.h"
 
 @interface ViewController ()
 
@@ -367,6 +368,22 @@
     NSArray *logestSubSeq = [DPAlgo longestIncreasingSubSequence: @[@(10), @(22), @(9), @(33), @(21), @(50), @(41), @(60), @(8) ]];
     
     Log(@"Longest Possible subseq is %@", logestSubSeq);
+    
+    NSMutableSet *set1 = [NSMutableSet setWithObject:@(1)];
+    NSMutableSet *set2 = [NSMutableSet setWithObject:@(2)];
+    
+    [set1 unionSet:set2];
+    
+    NSArray<NSArray<NSNumber *> *> *graphMat = @[
+  @[@(NSNotFound), @(4), @(4), @(NSNotFound), @(NSNotFound)],
+  @[@(4), @(NSNotFound), @(NSNotFound), @(8), @(6)],
+  @[@(4), @(NSNotFound), @(NSNotFound), @(3), @(5)],
+  @[@(NSNotFound), @(8), @(3), @(NSNotFound), @(2)],
+  @[@(NSNotFound), @(6), @(5), @(2), @(NSNotFound)],
+
+    ];
+    NSSet<GraphEdge *> *set = [GraphAlgorithm minimumSpanningTreeKruskal:graphMat];
+    
 }
 
 - (void)didReceiveMemoryWarning {

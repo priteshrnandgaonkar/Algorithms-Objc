@@ -29,4 +29,5 @@
 
 + (void)stronglyConnectedComponent:(NSArray<NSArray<NSNumber *> *> *)mat;
 
++ (NSSet<NSNumber *> *)minimumSpanningTreeKruskal:(NSArray<NSArray<NSNumber *> *> *)mat;
 @end

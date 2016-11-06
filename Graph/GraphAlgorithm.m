@@ -9,6 +9,7 @@
 #import "GraphAlgorithm.h"
 #import "CCMutableNumber.h"
 #import "Stack.h"
+#import "GraphEdge.h"
 
 @implementation GraphAlgorithm
 
@@ -307,6 +308,78 @@
     }
     
     return mut;
+}
+
++ (NSSet<GraphEdge *> *)minimumSpanningTreeKruskal:(NSArray<NSArray<NSNumber *> *> *)mat {
+    NSMutableSet<GraphEdge *> *resultSet = [NSMutableSet set];
+    
+    NSMutableArray<GraphEdge *> *edges = [self edgesFromGraph:mat];
+    
+   [edges sortUsingComparator:^NSComparisonResult(GraphEdge *  _Nonnull obj1, GraphEdge *  _Nonnull obj2) {
+       return [obj1.weight compare:obj2.weight];
+    }];
+
+    NSMutableSet *srcSet = nil;
+    NSMutableSet *destSet = nil;
+    NSMutableSet<NSMutableSet<NSNumber *> *> *setOfVerticesCovered = [NSMutableSet set];
+    for (GraphEdge *edge in edges) {
+        
+        srcSet = [self setHavingObject: edge.src inSet: setOfVerticesCovered];
+        destSet = [self setHavingObject: edge.dest inSet: setOfVerticesCovered];
+        
+        if (srcSet && destSet) {
+            
+            if (![srcSet intersectsSet:destSet]) {
+                [srcSet unionSet:destSet];
+                [destSet removeAllObjects];
+                [resultSet addObject:edge];
+            }
+        }
+        else if (srcSet && !destSet) {
+            [srcSet addObject:edge.dest];
+            [resultSet addObject:edge];
+
+        }
+        else if (destSet && !srcSet) {
+            [destSet addObject:edge.src];
+            [resultSet addObject:edge];
+        }
+        
+        else {
+            [setOfVerticesCovered addObject:[NSMutableSet setWithObjects:edge.src, edge.dest, nil]];
+            [resultSet addObject:edge];
+        }
+    }
+    
+    return [NSSet setWithSet:resultSet];
+}
+
++ (NSMutableSet<NSNumber *> *)setHavingObject:(NSNumber *)num inSet:(NSMutableSet<NSMutableSet<NSNumber *> *> *)set {
+    NSMutableSet<NSNumber *> *resultSet = nil;
+    for (NSMutableSet<NSNumber *> *obj in set.allObjects) {
+        if([obj containsObject:num]) {
+            resultSet = obj;
+            break;
+        }
+    }
+    return resultSet;
+}
+
++ (NSMutableArray<GraphEdge *> *)edgesFromGraph:(NSArray<NSArray<NSNumber *> *> *)mat {
+    
+    NSMutableSet<GraphEdge *> *mutEdges = @[].mutableCopy;
+    
+    GraphEdge *edge = nil;
+    for (NSUInteger i = 0; i < mat.count; ++i) {
+        for (NSUInteger j = 0; j < mat.count; ++j) {
+            if (![mat[i][j] isEqualToNumber:@(NSNotFound)]) {
+                edge = [[GraphEdge alloc] initWithSrc:@(i) dest:@(j) andWeight:mat[i][j]];
+                [mutEdges addObject:edge];
+            }
+        }
+    }
+    
+    return [NSMutableArray arrayWithArray:[mutEdges allObjects]];
 }
 
 @end

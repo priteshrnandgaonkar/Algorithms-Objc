@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		214925B21DCE275200C7BEC1 /* DPAlgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 214925B11DCE275200C7BEC1 /* DPAlgo.m */; };
+		215463CF1DCF650500569563 /* GraphEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = 215463CE1DCF650500569563 /* GraphEdge.m */; };
 		CA0DC0AA1DA670C5008E5FA3 /* LinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0A91DA670C5008E5FA3 /* LinkedList.m */; };
 		CA0DC0AD1DA67AC6008E5FA3 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0AC1DA67AC6008E5FA3 /* Node.m */; };
 		CA0DC0B11DA689FC008E5FA3 /* LinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0B01DA689FC008E5FA3 /* LinkedListTests.m */; };
@@ -61,6 +62,8 @@
 /* Begin PBXFileReference section */
 		214925B01DCE275200C7BEC1 /* DPAlgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPAlgo.h; path = General/DynamicProgramming/DPAlgo.h; sourceTree = "<group>"; };
 		214925B11DCE275200C7BEC1 /* DPAlgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPAlgo.m; path = General/DynamicProgramming/DPAlgo.m; sourceTree = "<group>"; };
+		215463CD1DCF650500569563 /* GraphEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphEdge.h; path = Graph/GraphEdge.h; sourceTree = "<group>"; };
+		215463CE1DCF650500569563 /* GraphEdge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphEdge.m; path = Graph/GraphEdge.m; sourceTree = "<group>"; };
 		CA0DC0A81DA670C5008E5FA3 /* LinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinkedList.h; path = Algorithms/LinkedList.h; sourceTree = "<group>"; };
 		CA0DC0A91DA670C5008E5FA3 /* LinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinkedList.m; path = Algorithms/LinkedList.m; sourceTree = "<group>"; };
 		CA0DC0AB1DA67AC6008E5FA3 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
@@ -402,6 +405,8 @@
 			children = (
 				CAFF79991DBB653A002CFAD3 /* GraphAlgorithm.h */,
 				CAFF799A1DBB653A002CFAD3 /* GraphAlgorithm.m */,
+				215463CD1DCF650500569563 /* GraphEdge.h */,
+				215463CE1DCF650500569563 /* GraphEdge.m */,
 			);
 			name = Graph;
 			path = ..;
@@ -540,6 +545,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				215463CF1DCF650500569563 /* GraphEdge.m in Sources */,
 				CAE21C001DA0C35E004E5763 /* Heap.m in Sources */,
 				CA2A6AE11DB0EE690025CC8F /* MapAlgorithms.m in Sources */,
 				CAE21C041DA10CAB004E5763 /* PriorityQueue.m in Sources */,
