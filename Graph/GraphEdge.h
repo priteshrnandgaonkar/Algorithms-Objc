@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GraphEdge : NSObject
+@interface GraphEdge : NSObject<NSCopying>
+
+@property (strong, nonatomic) NSNumber *src;
+@property (strong, nonatomic) NSNumber *dest;
+@property (strong, nonatomic) NSNumber *weight;
+
+- (instancetype)initWithSrc:(NSNumber *)src dest:(NSNumber *)dest andWeight:(NSNumber *)weight;
+
+- (BOOL)isEqualToEdge:(GraphEdge *)edge;
 
 @end

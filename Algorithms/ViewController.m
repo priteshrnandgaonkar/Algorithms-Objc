@@ -384,6 +384,8 @@
     ];
     NSSet<GraphEdge *> *set = [GraphAlgorithm minimumSpanningTreeKruskal:graphMat];
     
+    NSMutableArray<GraphEdge *> *prims = [GraphAlgorithm minimumSpanningTreePrimsMat:graphMat];
+    
 }
 
 - (void)didReceiveMemoryWarning {

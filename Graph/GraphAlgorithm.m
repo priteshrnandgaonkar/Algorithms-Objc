@@ -382,4 +382,44 @@
     return [NSMutableArray arrayWithArray:[mutEdges allObjects]];
 }
 
++ (NSMutableArray<GraphEdge *> *)minimumSpanningTreePrimsMat:(NSArray<NSArray<NSNumber *> *> *)mat {
+    
+    NSMutableArray<NSNumber *> *key = @[].mutableCopy;
+    NSMutableArray<NSNumber *> *parent = @[].mutableCopy;
+    NSMutableSet<NSNumber *> *vertices = [NSMutableSet set];
+    NSMutableArray<NSNumber *> *result = [NSMutableArray array];
+    NSMutableArray<GraphEdge *> *resultEdges = [NSMutableArray array];
+
+    for (NSUInteger i = 0; i < mat.count; ++i) {
+        [vertices addObject:@(i)];
+        key[i] = @(NSIntegerMax);
+        parent[i] = @(NSNotFound);
+    }
+    
+    key[0] = @(0);
+    
+    while (vertices.count > 0) {
+        //
+        NSNumber *num = [[vertices allObjects] sortedArrayUsingComparator:^NSComparisonResult(NSNumber *obj1, NSNumber *obj2) {
+            return [key[obj1.integerValue] compare:key[obj2.integerValue]];
+        }][0];
+        
+        [vertices removeObject:num];
+        [result addObject:num];
+        
+            for (NSUInteger j = 0; j < mat[num.integerValue].count; ++j) {
+                if (![mat[num.integerValue][j] isEqualToNumber:@(NSNotFound)] && key[j] < mat[num.integerValue][j]) {
+                    key[j] = mat[num.integerValue][j];
+                    parent[j] = num;
+                }
+            }
+        
+    }
+    GraphEdge *edge = nil;
+    for (NSNumber *num in result.reverseObjectEnumerator) {
+        edge = [[GraphEdge alloc] initWithSrc:parent[num.integerValue] dest:num andWeight:key[num.integerValue]];
+        [resultEdges addObject:edge];
+    }
+    return resultEdges;
+}
 @end

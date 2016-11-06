@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GraphEdge.h"
 
 @interface GraphAlgorithm : NSObject
 
@@ -30,4 +31,6 @@
 + (void)stronglyConnectedComponent:(NSArray<NSArray<NSNumber *> *> *)mat;
 
 + (NSSet<NSNumber *> *)minimumSpanningTreeKruskal:(NSArray<NSArray<NSNumber *> *> *)mat;
+
++ (NSMutableArray<GraphEdge *> *)minimumSpanningTreePrimsMat:(NSArray<NSArray<NSNumber *> *> *)mat;
 @end
