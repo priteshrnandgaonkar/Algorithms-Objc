@@ -380,12 +380,18 @@
   @[@(4), @(NSNotFound), @(NSNotFound), @(3), @(5)],
   @[@(NSNotFound), @(8), @(3), @(NSNotFound), @(2)],
   @[@(NSNotFound), @(6), @(5), @(2), @(NSNotFound)],
-
     ];
     NSSet<GraphEdge *> *set = [GraphAlgorithm minimumSpanningTreeKruskal:graphMat];
     
     NSMutableArray<GraphEdge *> *prims = [GraphAlgorithm minimumSpanningTreePrimsMat:graphMat];
     
+    GraphEdge *edge1 = [[GraphEdge alloc] initWithSrc:@(0) dest:@(1) andWeight:@(10)];
+    NSMutableSet *muSet = [NSMutableSet set];
+    [muSet addObject:edge1];
+    GraphEdge *edge2 = [[GraphEdge alloc] initWithSrc:@(0) dest:@(1) andWeight:@(10)];
+    [muSet addObject:edge2];
+    [muSet removeObject:[[GraphEdge alloc] initWithSrc:@(0) dest:@(1) andWeight:@(10)]];
+
 }
 
 - (void)didReceiveMemoryWarning {
