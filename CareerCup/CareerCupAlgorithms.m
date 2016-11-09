@@ -400,7 +400,8 @@
     }
     
     else {
-        mat[x][y] = @(NSIntegerMax).stringValue;
+        mat[x][y] = @(NSIntegerMax).stringValue; // trick to avoid the next open place to access the current one
+        
         NSInteger up = NSIntegerMax;
         NSInteger down = NSIntegerMax;
         NSInteger left = NSIntegerMax;
