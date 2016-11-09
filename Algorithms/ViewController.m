@@ -416,6 +416,13 @@
   ].mutableCopy;
     [CareerCupAlgorithms distanceFromGuardsAtOpenPlacesInMat: museum];
     
+    PNInterval *stringInterval1 = [[PNInterval alloc] initWithStart:@(0) end: @(2)];
+    PNInterval *stringInterval2 = [[PNInterval alloc] initWithStart:@(2) end: @(3)];
+    
+    NSMutableArray<PNInterval *> *stringIntervalArray = @[stringInterval1, stringInterval2].mutableCopy;
+    
+    NSString *lexLargestString = [CareerCupAlgorithms lexicographicallyLargestString:@"abdc".mutableCopy withSwappingIndexes:stringIntervalArray];
+    
 }
 
 - (void)didReceiveMemoryWarning {

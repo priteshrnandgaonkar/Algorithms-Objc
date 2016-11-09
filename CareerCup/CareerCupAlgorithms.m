@@ -456,4 +456,42 @@
     }
 }
 
++ (NSString *)lexicographicallyLargestString:(NSMutableString *)str withSwappingIndexes:(NSArray<PNInterval *> *)intervals {
+    
+    NSMutableArray<NSNumber *> *indexMutArray = @[].mutableCopy;
+    NSMutableArray<NSString *> *mutValueArray = @[].mutableCopy;
+    
+    NSMutableSet *mutSet = [NSMutableSet set];
+    NSMutableSet *mutValueSet = [NSMutableSet set];
+
+    for (PNInterval *interval in intervals) {
+        [mutSet addObject: interval.start];
+        [mutSet addObject: interval.end];
+        NSString *startString = [NSString stringWithFormat:@"%C", [str characterAtIndex: interval.start.integerValue]];
+        NSString *endString = [NSString stringWithFormat:@"%C", [str characterAtIndex: interval.end.integerValue]];
+        [mutValueSet addObject: startString];
+        [mutValueSet addObject: endString];
+    }
+    
+    indexMutArray = mutSet.allObjects.mutableCopy;
+    mutValueArray = mutValueSet.allObjects.mutableCopy;
+    
+    [indexMutArray sortUsingComparator:^NSComparisonResult(NSNumber * _Nonnull obj1, NSNumber * _Nonnull obj2) {
+        return [obj1 compare: obj2];
+    }];
+    
+    [mutValueArray sortUsingComparator:^NSComparisonResult(NSString * _Nonnull obj1, NSString * _Nonnull obj2) {
+        return [obj2 compare: obj1];
+    }];
+    
+    NSUInteger t = 0;
+    for (NSString *value in mutValueArray) {
+        [str deleteCharactersInRange:NSMakeRange(indexMutArray[t].integerValue,1)];
+        [str insertString:value atIndex: indexMutArray[t].integerValue];
+        t = t + 1;
+    }
+    
+    return [NSString stringWithString: str];
+}
+
 @end
