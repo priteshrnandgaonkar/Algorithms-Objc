@@ -406,6 +406,8 @@
     NSMutableArray<PNInterval *> *intervalArray = @[interval1, interval2, interval3, interval4].mutableCopy;
     [GeneralAlgorithms mergeIntervals: intervalArray];
     
+    NSArray<NSArray<NSString *> *> *powerSet = [GeneralAlgorithms powerSet:@[@"a", @"b", @"c", @"d"]];
+    Log(@"Power set - %@", powerSet);
 }
 
 - (void)didReceiveMemoryWarning {
