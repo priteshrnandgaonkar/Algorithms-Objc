@@ -41,5 +41,24 @@ Log(@"Dummy 2, %@", dummy1);
 // Multiplication Method:-
 // The multiplication method for creating hash functions operates in two steps. First, we multiply the key k by a constant A in the range 0 < A < 1 and extract the fractional part of k A. Then, we multiply this value by m and take the floor of the result. In short, the hash function is h(k) = ⌊m (k A mod 1)⌋
 
+//------------------------Dhasu Algo ------------------------------------
+/*
+ N friends are playing a game. Each of them has a list of numbers in front of himself.
+ 
+ Each of N friends chooses a number from his list and reports it to the game administrator. Then the game administrator sorts the reported numbers and shouts the K-th largest number.
+ 
+ You want to know the count all possible numbers that the game administrator can shout.
+ 
+ Input Format:
+ 
+ First line of the input contain an integer T, the number of testcases. Then follow T testcases. For each test case the input is of the following format.
+ 
+ In the first line there are two numbers N and K. In each of next N lines there is an integer a_i followed by a_i integers, ith line describes the list for ith person.
+ 
+ All the numbers in all the lists are unique.
+ 
+ Solution:-
+ take the smallest number from each set. find the K-th -largest of these. This is the smallest number that is in the result. Similarly, find the largest number in the result. Prove that Each number between the two is in the result.
+*/
 
 #endif /* Tips_h */
