@@ -380,4 +380,79 @@
     return max + arr[sourceX][sourceY].integerValue;
 }
 
++ (void)distanceFromGuardsAtOpenPlacesInMat:(NSMutableArray<NSMutableArray<NSString *> *> *)mat {
+    
+    for (NSUInteger i = 0; i < mat.count; ++i) {
+        for (NSUInteger j = 0; j < mat[i].count; ++j) {
+            if ([mat[i][j] isEqualToString:@"O"]) {
+                [self distanceOfGuardsFromSrcRow: i srcColumn: j matrix: mat];
+            }
+        }
+    }
+}
+
++ (void)distanceOfGuardsFromSrcRow:(NSInteger)x srcColumn:(NSInteger)y matrix:(NSMutableArray<NSMutableArray<NSString *> *> *)mat {
+    
+    BOOL guardInNb = [self checkForGuardInNbOfRow:x column:y matrix:mat];
+    
+    if (guardInNb) {
+        mat[x][y] = @(1).stringValue;
+    }
+    
+    else {
+        mat[x][y] = @(NSIntegerMax).stringValue;
+        NSInteger up = NSIntegerMax;
+        NSInteger down = NSIntegerMax;
+        NSInteger left = NSIntegerMax;
+        NSInteger right = NSIntegerMax;
+
+        if ((x - 1) >= 0 && ![mat[x-1][y] isEqualToString:@"G"] && ![mat[x-1][y] isEqualToString:@"W"]) {
+            if ([mat[x-1][y] isEqualToString:@"O"]) {
+                [self distanceOfGuardsFromSrcRow:x-1 srcColumn:y matrix:mat];
+            }
+            up = mat[x-1][y].integerValue;
+        }
+        else if ((x + 1) < mat.count && ![mat[x+1][y] isEqualToString:@"G"] && ![mat[x+1][y] isEqualToString:@"W"]) {
+            if ([mat[x+1][y] isEqualToString:@"O"]) {
+                [self distanceOfGuardsFromSrcRow:x srcColumn:y+1 matrix:mat];
+            }
+            [self distanceOfGuardsFromSrcRow:x+1 srcColumn:y matrix:mat];
+            down = mat[x+1][y].integerValue;
+        }
+        else if ((y - 1) >= 0 && ![mat[x][y-1] isEqualToString:@"G"] && ![mat[x][y-1] isEqualToString:@"W"]) {
+            if ([mat[x][y-1] isEqualToString:@"O"]) {
+                [self distanceOfGuardsFromSrcRow:x srcColumn:y+1 matrix:mat];
+            }
+            [self distanceOfGuardsFromSrcRow:x srcColumn:y-1 matrix:mat];
+            left = mat[x][y-1].integerValue;
+        }
+        else if ((y + 1) < mat[x].count && ![mat[x][y+1] isEqualToString:@"G"] && ![mat[x][y+1] isEqualToString:@"W"]) {
+            if ([mat[x][y+1] isEqualToString:@"O"]) {
+                [self distanceOfGuardsFromSrcRow:x srcColumn:y+1 matrix:mat];
+            }
+            right = mat[x][y+1].integerValue;
+        }
+        
+        mat[x][y] = @(1 + MIN(MIN(up, down), MIN(left, right))).stringValue;
+    }
+}
+
++ (BOOL)checkForGuardInNbOfRow:(NSInteger)x column:(NSInteger)y  matrix:(NSMutableArray<NSMutableArray<NSString *> *> *)mat {
+    if ((x - 1) >= 0 && [mat[x-1][y] isEqualToString:@"G"]) {
+        return YES;
+    }
+    else if ((x + 1) < mat.count && [mat[x+1][y] isEqualToString:@"G"]) {
+        return YES;
+    }
+    else if ((y - 1) >= 0 && [mat[x][y-1] isEqualToString:@"G"]) {
+        return YES;
+    }
+    else if ((y + 1) < mat[x].count && [mat[x][y+1] isEqualToString:@"G"]) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+
 @end

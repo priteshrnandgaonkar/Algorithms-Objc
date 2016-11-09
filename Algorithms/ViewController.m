@@ -408,6 +408,14 @@
     
     NSArray<NSArray<NSString *> *> *powerSet = [GeneralAlgorithms powerSet:@[@"a", @"b", @"c", @"d"]];
     Log(@"Power set - %@", powerSet);
+    
+    NSMutableArray<NSMutableArray<NSString *> *> *museum =@[
+  @[@"O", @"O", @"G"].mutableCopy,
+  @[@"W", @"O", @"W"].mutableCopy,
+  @[@"O", @"O", @"G"].mutableCopy,
+  ].mutableCopy;
+    [CareerCupAlgorithms distanceFromGuardsAtOpenPlacesInMat: museum];
+    
 }
 
 - (void)didReceiveMemoryWarning {

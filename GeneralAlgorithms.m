@@ -83,14 +83,13 @@
 }
 
 + (NSArray<NSArray<NSString *> *> *)powerSet:(NSArray<NSString *> *)values {
-    
+    // Iterative
     NSUInteger count = values.count;
     NSMutableArray<NSArray<NSString *> *> *mutArray = @[].mutableCopy;
     
     for (NSUInteger i = 0; i < pow(2, count); ++i) {
         [mutArray addObject:[self arrayForNumber:i inValues:values]];
     }
-    
     return [NSArray arrayWithArray: mutArray];
 }
 

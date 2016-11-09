@@ -24,5 +24,4 @@
 + (void)mergeIntervals:(NSMutableArray<PNInterval *> *)intervals;
 
 + (NSArray<NSArray<NSString *> *> *)powerSet:(NSArray<NSString *> *)values;
-
 @end
