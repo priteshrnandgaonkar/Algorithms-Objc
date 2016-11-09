@@ -7,7 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+@interface PNInterval: NSObject
+
+@property (nonatomic, strong) NSNumber *start;
+@property (nonatomic, strong) NSNumber *end;
+
+- (instancetype)init;
+- (instancetype)initWithStart:(NSNumber *)start end:(NSNumber *)end;
+
+@end
 
 @interface GeneralAlgorithms : NSObject
+
++ (NSUInteger)numberOfSetBits:(NSUInteger)num;
+
++ (void)mergeIntervals:(NSMutableArray<PNInterval *> *)intervals;
 
 @end
