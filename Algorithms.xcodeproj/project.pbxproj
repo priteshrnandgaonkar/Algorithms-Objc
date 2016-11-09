@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2125B9F71DD32DCD00BF73D5 /* GeneralAlgorithms.m in Sources */ = {isa = PBXBuildFile; fileRef = 2125B9F61DD32DCD00BF73D5 /* GeneralAlgorithms.m */; };
 		214925B21DCE275200C7BEC1 /* DPAlgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 214925B11DCE275200C7BEC1 /* DPAlgo.m */; };
 		215463CF1DCF650500569563 /* GraphEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = 215463CE1DCF650500569563 /* GraphEdge.m */; };
 		CA0DC0AA1DA670C5008E5FA3 /* LinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0A91DA670C5008E5FA3 /* LinkedList.m */; };
@@ -60,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2125B9F51DD32DCD00BF73D5 /* GeneralAlgorithms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralAlgorithms.h; sourceTree = "<group>"; };
+		2125B9F61DD32DCD00BF73D5 /* GeneralAlgorithms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralAlgorithms.m; sourceTree = "<group>"; };
 		214925B01DCE275200C7BEC1 /* DPAlgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPAlgo.h; path = General/DynamicProgramming/DPAlgo.h; sourceTree = "<group>"; };
 		214925B11DCE275200C7BEC1 /* DPAlgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPAlgo.m; path = General/DynamicProgramming/DPAlgo.m; sourceTree = "<group>"; };
 		215463CD1DCF650500569563 /* GraphEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphEdge.h; path = Graph/GraphEdge.h; sourceTree = "<group>"; };
@@ -158,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				214925AF1DCE270F00C7BEC1 /* DynamicProgramming */,
+				2125B9F51DD32DCD00BF73D5 /* GeneralAlgorithms.h */,
+				2125B9F61DD32DCD00BF73D5 /* GeneralAlgorithms.m */,
 			);
 			name = General;
 			path = ..;
@@ -559,6 +564,7 @@
 				CAE977FA1DC504D900703A83 /* PNTableViewController.m in Sources */,
 				CAE21BCE1D9E6656004E5763 /* ViewController.m in Sources */,
 				CA0DC0B41DA6A272008E5FA3 /* SentinelLinkedList.m in Sources */,
+				2125B9F71DD32DCD00BF73D5 /* GeneralAlgorithms.m in Sources */,
 				CAE977FE1DC505E500703A83 /* PNTableViewCell.m in Sources */,
 				CAFDA7C21DC8925B00ED473E /* PNTrie.m in Sources */,
 				CAFF79971DBB5170002CFAD3 /* Stack.m in Sources */,

@@ -19,6 +19,7 @@
 #import "PNTrie.h"
 #import "DPAlgo.h"
 #import "GraphEdge.h"
+#import "GeneralAlgorithms.h"
 
 @interface ViewController ()
 
@@ -392,6 +393,19 @@
     [muSet addObject:edge2];
     [muSet removeObject:[[GraphEdge alloc] initWithSrc:@(0) dest:@(1) andWeight:@(10)]];
 
+    
+    NSUInteger numOfSetBits = [GeneralAlgorithms numberOfSetBits: 10];
+    
+    Log(@"Num of set bits in 10 is %lu",(unsigned long) numOfSetBits);
+    
+    PNInterval *interval1 = [[PNInterval alloc] initWithStart:@(1) end: @(3)];
+    PNInterval *interval2 = [[PNInterval alloc] initWithStart:@(2) end: @(4)];
+    PNInterval *interval3 = [[PNInterval alloc] initWithStart:@(5) end: @(7)];
+    PNInterval *interval4 = [[PNInterval alloc] initWithStart:@(6) end: @(8)];
+
+    NSMutableArray<PNInterval *> *intervalArray = @[interval1, interval2, interval3, interval4].mutableCopy;
+    [GeneralAlgorithms mergeIntervals: intervalArray];
+    
 }
 
 - (void)didReceiveMemoryWarning {
