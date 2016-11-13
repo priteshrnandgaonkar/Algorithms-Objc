@@ -423,6 +423,11 @@
     
     NSString *lexLargestString = [CareerCupAlgorithms lexicographicallyLargestString:@"abdc".mutableCopy withSwappingIndexes:stringIntervalArray];
     
+    
+    NSArray *amazNumsArray = @[@(10), @(11), @(5), @(14), @(9), @(8)];//@[@(9), @(10), @(5), @(3), @(4), @(1)];
+    NSUInteger startingPoint = [CareerCupAlgorithms startingPointForMaximumNumOfAmazingNumberInArray:amazNumsArray];
+    Log(@"Starting Point of array %@ for max Amazing num are %lu", amazNumsArray, startingPoint);
+    
 }
 
 - (void)didReceiveMemoryWarning {

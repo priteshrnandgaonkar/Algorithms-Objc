@@ -494,4 +494,37 @@
     return [NSString stringWithString: str];
 }
 
++ (NSUInteger)startingPointForMaximumNumOfAmazingNumberInArray:(NSArray<NSNumber *> *)array {
+    
+    NSMutableArray<NSNumber *> *maxAmazNum = @[].mutableCopy;
+    
+    for (NSNumber *num in array) {
+        [maxAmazNum addObject:@(0)];
+    }
+    
+    NSUInteger diff = 0;
+    for (NSUInteger j = 0; j < array.count; ++j) {
+        
+        if ([array[j] compare:@(array.count - 1)] == NSOrderedDescending) {
+            continue;
+        }
+        
+        diff = 0;
+        for (NSUInteger i = array[j].integerValue; i < array.count; ++i) {
+            diff = (array.count - i) % array.count;
+            maxAmazNum[(j+diff)%array.count] = @(maxAmazNum[(j+diff)%array.count].integerValue + 1);
+        }
+    }
+    
+    NSNumber *max = @(NSIntegerMin);
+    NSInteger index = 0;
+    for (NSUInteger i = 0; i < maxAmazNum.count; ++i) {
+        if (max.integerValue < maxAmazNum[i].integerValue) {
+            max = maxAmazNum[i];
+            index = i;
+        }
+    }
+    return index;
+}
+
 @end
