@@ -527,4 +527,75 @@
     return index;
 }
 
++ (NSUInteger)minimumLengthOfSubArray:(NSArray<NSNumber *> *)numbers withSumAtLeast:(NSUInteger)s {
+    
+    NSMutableArray<NSNumber *> *lengthOfSubarrays = @[].mutableCopy;
+    
+    NSUInteger leftIndex = 0;
+    NSUInteger rightIndex = 0;
+    NSInteger tempSum  = 0;
+    tempSum = numbers[leftIndex].integerValue;
+
+    while (leftIndex < numbers.count && rightIndex < numbers.count) {
+//        if (leftIndex == rightIndex) {
+//            if (tempSum >= s) {
+//                [lengthOfSubarrays addObject:@(1)];
+//                leftIndex++;
+//            }
+//            rightIndex++;
+//            tempSum += numbers[rightIndex].integerValue;
+//        }
+//        
+//        else {
+//            if (tempSum >= s) {
+//                [lengthOfSubarrays addObject:@(rightIndex - leftIndex + 1)];
+//                tempSum
+//                leftIndex++;
+//            }
+//            else {
+//                rightIndex++;
+//            }
+//        }
+        
+        if (tempSum >= s) {
+            
+            if (leftIndex == rightIndex) {
+                [lengthOfSubarrays addObject:@(1)];
+                rightIndex++;
+                leftIndex++;
+                if (leftIndex < numbers.count) {
+                    tempSum = numbers[leftIndex].integerValue;
+                }
+            }
+            else {
+                [lengthOfSubarrays addObject:@(rightIndex - leftIndex + 1)];
+                tempSum -= numbers[leftIndex].integerValue;
+                leftIndex++;
+            }
+        }
+        else {
+//            if (leftIndex == rightIndex) {
+//                rightIndex++;
+//                tempSum += numbers[rightIndex].integerValue;
+//            }
+//            else {
+//                tempSum -= numbers[leftIndex].integerValue;
+//                leftIndex++;
+//            }
+            rightIndex++;
+            if (rightIndex < numbers.count) {
+                tempSum += numbers[rightIndex].integerValue;
+            }
+        }
+    }
+    
+    NSUInteger min = NSIntegerMax;
+    for (NSNumber *num in lengthOfSubarrays) {
+        if (min > num.integerValue) {
+            min = num.integerValue;
+        }
+    }
+    return min;
+}
+
 @end

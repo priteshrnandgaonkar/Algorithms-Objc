@@ -112,4 +112,10 @@ should get a solution with time complexity less than O(N^2)
 
 + (NSUInteger)startingPointForMaximumNumOfAmazingNumberInArray:(NSArray<NSNumber *> *)array;
 
+/*
+Given an array of n positive integers and a positive integer s, find the minimal length of a subarray of which the sum ≥ s. If there isn't one, return 0 instead.
+*/
+
++ (NSUInteger)minimumLengthOfSubArray:(NSArray<NSNumber *> *)numbers withSumAtLeast:(NSUInteger)s;
+
 @end

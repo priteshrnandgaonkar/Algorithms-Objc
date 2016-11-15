@@ -193,4 +193,37 @@
     return maxNum;
 }
 
++ (NSUInteger)minimumNumberOfEditsFromStr1:(NSString *)str1 toStr2:(NSString *)str2 {
+    
+    NSMutableArray<NSMutableArray<NSNumber *> *> *mutMat = @[].mutableCopy;
+    
+    for (NSUInteger i = 0; i <= str1.length; ++i) {
+        [mutMat addObject:@[].mutableCopy];
+        for (NSUInteger j = 0; j <= str2.length; ++j) {
+            [mutMat[i] addObject:@(0)];
+        }
+    }
+    
+    for (NSUInteger i = 0; i <= str1.length; ++i) {
+        for (NSUInteger j = 0; j <= str2.length; ++j) {
+            if (i == 0) {
+                mutMat[i][j] = @(j); // j inserts
+            }
+            else if (j == 0) {
+                mutMat[i][j] = @(i); // i inserts
+            }
+            else {
+                if ([str1 characterAtIndex: i-1] == [str2 characterAtIndex: j-1]) {
+                    mutMat[i][j] = mutMat[i-1][j-1];
+                }
+                else {
+                    mutMat[i][j] = @(1 + MIN(MIN(mutMat[i-1][j-1].integerValue, mutMat[i][j-1].integerValue), mutMat[i-1][j].integerValue));
+                }
+            }
+        }
+    }
+    
+    return mutMat[str1.length][str2.length].integerValue;
+}
+
 @end

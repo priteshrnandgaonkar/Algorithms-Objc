@@ -424,9 +424,17 @@
     NSString *lexLargestString = [CareerCupAlgorithms lexicographicallyLargestString:@"abdc".mutableCopy withSwappingIndexes:stringIntervalArray];
     
     
-    NSArray *amazNumsArray = @[@(10), @(11), @(5), @(14), @(9), @(8)];//@[@(9), @(10), @(5), @(3), @(4), @(1)];
+    NSArray *amazNumsArray = @[@(4), @(2), @(8), @(2), @(4), @(5), @(3)];//@[@(10), @(11), @(5), @(14), @(9), @(8)];//@[@(9), @(10), @(5), @(3), @(4), @(1)];
     NSUInteger startingPoint = [CareerCupAlgorithms startingPointForMaximumNumOfAmazingNumberInArray:amazNumsArray];
     Log(@"Starting Point of array %@ for max Amazing num are %lu", amazNumsArray, startingPoint);
+    
+    NSMutableArray<NSNumber *> *testMutArray = @[@(1), @(2), @(3)].mutableCopy;
+    
+    [testMutArray insertObject:@(4) atIndex:1];
+    
+    NSUInteger minEdits = [DPAlgo minimumNumberOfEditsFromStr1:@"sunday" toStr2:@"saturday"];
+    
+    NSUInteger min = [CareerCupAlgorithms minimumLengthOfSubArray:@[@(3), @(9), @(4), @(5), @(11)] withSumAtLeast:11];
     
 }
 

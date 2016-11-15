@@ -19,4 +19,7 @@
 + (NSUInteger)maximumIncreasingSubSequence:(NSArray<NSNumber *> *)arr dict:(NSMutableDictionary<NSNumber *, NSNumber *> *)dict;
 
 + (NSArray<NSNumber *> *)longestIncreasingSubSequence:(NSArray<NSNumber *> *)arr;
+
++ (NSUInteger)minimumNumberOfEditsFromStr1:(NSString *)str1 toStr2:(NSString *)str2;
+
 @end
