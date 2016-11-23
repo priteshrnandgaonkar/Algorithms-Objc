@@ -179,6 +179,7 @@
         countArray[num.integerValue] = @(countArray[num.integerValue].integerValue - 1);
     }
     [resultArray removeObjectAtIndex:0];
+    
     return [NSArray arrayWithArray:resultArray];
 }
 
@@ -277,7 +278,7 @@
     }
     else {
         return [[self class] nthSmallestNumberinArray:[mutArray subarrayWithRange:NSMakeRange(0, leftIndex + 1)] n: n];
-    }
+    }   
 }
 
 @end

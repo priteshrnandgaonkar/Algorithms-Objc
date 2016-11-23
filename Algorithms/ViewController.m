@@ -436,6 +436,17 @@
     
     NSUInteger min = [CareerCupAlgorithms minimumLengthOfSubArray:@[@(3), @(9), @(4), @(5), @(11)] withSumAtLeast:11];
     
+    [testMutArray enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        Log(@"obj = %@", obj);
+        *stop = YES;
+        testMutArray[idx] = @(0);
+//        [testMutArray removeObject:obj];
+    }];
+ 
+    NSArray<NSString *> *names = @[@"Pritesh", @"Ravindra", @"Nandgaonkar"];
+    NSString *priteshName = [names componentsJoinedByString:@" "];
+    NSArray *componentsSeperated = [priteshName componentsSeparatedByString:@" "];
+    
 }
 
 - (void)didReceiveMemoryWarning {

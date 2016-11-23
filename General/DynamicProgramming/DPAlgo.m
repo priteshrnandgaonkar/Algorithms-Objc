@@ -68,6 +68,7 @@
 
     for (NSUInteger i = 0; i < expr.length; ++i) {
         operator = [NSString stringWithFormat: @"%C", [expr characterAtIndex:i]];
+        
         if ([self isOperator: operator]) {
             
             leftExpr = [expr substringToIndex:i];
@@ -196,7 +197,6 @@
 + (NSUInteger)minimumNumberOfEditsFromStr1:(NSString *)str1 toStr2:(NSString *)str2 {
     
     NSMutableArray<NSMutableArray<NSNumber *> *> *mutMat = @[].mutableCopy;
-    
     for (NSUInteger i = 0; i <= str1.length; ++i) {
         [mutMat addObject:@[].mutableCopy];
         for (NSUInteger j = 0; j <= str2.length; ++j) {
