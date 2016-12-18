@@ -25,4 +25,7 @@
 
 + (NSArray<NSArray<NSString *> *> *)powerSet:(NSArray<NSString *> *)values;
 
++ (NSArray<NSNumber *> *)binaryRepresentationOfNumber:(NSNumber *)num;
+
++ (BOOL)checkPatternOnString:(NSString *)str pattern:(NSString *)pattern;
 @end

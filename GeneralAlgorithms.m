@@ -109,4 +109,96 @@
     return [NSArray arrayWithArray: mutArray];
 }
 
++ (BOOL)isNumberChar:(NSString *)alphabetString {
+    
+    BOOL result = NO;
+    if([alphabetString isEqualToString:@"0"]) {
+        result = YES;
+    }
+    else if([alphabetString isEqualToString:@"1"]) {
+        result = YES;
+    }
+    else if([alphabetString isEqualToString:@"2"]) {
+        result = YES;
+    }
+    else if([alphabetString isEqualToString:@"3"]) {
+        result = YES;
+    }
+    else if([alphabetString isEqualToString:@"4"]) {
+        result = YES;
+    }
+    else if([alphabetString isEqualToString:@"5"]) {
+        result = YES;
+    }
+    else if([alphabetString isEqualToString:@"6"]) {
+        result = YES;
+    }
+    else if([alphabetString isEqualToString:@"7"]) {
+        result = YES;
+    }
+    else if([alphabetString isEqualToString:@"8"]) {
+        result = YES;
+    }
+    else if([alphabetString isEqualToString:@"9"]) {
+        result = YES;
+    }
+    return result;
+}
+
++ (BOOL)checkPatternOnString:(NSString *)str pattern:(NSString *)pattern {
+    
+    NSInteger stringIndex = 0;
+    BOOL isNumber = YES;
+    NSInteger count = 0;
+    
+    BOOL result = YES;
+    
+    for(NSInteger patternIndex = 0; patternIndex < pattern.length; ++patternIndex) {
+        
+        unichar alphabetChar = [pattern characterAtIndex:patternIndex];
+        NSString *alphabet = [NSString stringWithCharacters:&alphabetChar length:1];
+        isNumber = [self isNumberChar: alphabet];
+        
+        if (isNumber) {
+            count = (count * 10) + alphabet.intValue;
+        }
+        else {
+            
+            if (count > 0) {
+                stringIndex += count;
+            }
+            if(stringIndex >= str.length || alphabetChar != [str characterAtIndex: stringIndex]) {
+                result = NO;
+                break;
+            }
+            stringIndex++;
+            count = 0;
+        }
+    }
+    
+    if (count > 0 && count != str.length - stringIndex) {
+        result = NO;
+    }
+    
+    return result;
+}
+
++ (NSArray<NSNumber *> *)binaryRepresentationOfNumber:(NSNumber *)num {
+    NSMutableArray<NSNumber *> *mutArray = @[].mutableCopy;
+    
+    NSMutableArray<NSNumber *> *resultArray = @[].mutableCopy;
+
+    NSInteger temp = num.integerValue;
+    while(temp > 0) {
+        [mutArray addObject:@(temp % 2)];
+        temp = temp / 2;
+    }
+    
+    for (num in mutArray.reverseObjectEnumerator) {
+        [resultArray addObject:num];
+    }
+    
+    return [NSArray arrayWithArray:resultArray];
+}
+
 @end

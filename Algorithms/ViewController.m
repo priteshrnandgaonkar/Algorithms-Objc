@@ -447,6 +447,13 @@
     NSString *priteshName = [names componentsJoinedByString:@" "];
     NSArray *componentsSeperated = [priteshName componentsSeparatedByString:@" "];
     
+    NSArray *binary = [GeneralAlgorithms binaryRepresentationOfNumber:@(6)];
+    Log("Binary Representation %@", binary);
+    
+    NSString *string = @"Housing";
+    NSString *pattern = @"H2s5";
+    BOOL isPatternMatached = [GeneralAlgorithms checkPatternOnString:string pattern:pattern];
+    Log("Pattern Matched on String = %@, pattern = %@ Result = %d", string, pattern, isPatternMatached);
 }
 
 - (void)didReceiveMemoryWarning {
