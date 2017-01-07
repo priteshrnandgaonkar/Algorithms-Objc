@@ -37,6 +37,163 @@
 
 @implementation GeneralAlgorithms
 
+//+ (void)permuteString:(NSString *)str {
+//    
+//    // Generate count dict
+//    NSMutableDictionary<NSString *, NSNumber *> *mutDict = @{}.mutableCopy;
+//    NSMutableArray<NSString *> *mutArray = @[].mutableCopy;
+////    NSMutableArray *result = [NSMutableArray arrayWithCapacity: str.length];
+//    for (NSUInteger i = 0; i < str.length; ++i) {
+//        
+//        unichar alphabetChar = [str characterAtIndex:i];
+//        NSString *alphabet = [NSString stringWithCharacters:&alphabetChar length:1];
+//        if (!mutDict[alphabet]) {
+//            mutDict[alphabet] = @(1);
+//            [mutArray addObject: alphabet];
+//        }
+//        else {
+//            mutDict[alphabet] = @(mutDict[alphabet].integerValue + 1);
+//        }
+//    }
+//    
+//    [mutArray sortUsingComparator:^NSComparisonResult(NSString   * _Nonnull obj1, NSString   * _Nonnull obj2) {
+//        return [obj1 compare: obj2];
+//    }];
+//    
+//    NSMutableArray<NSString *> *results = [NSMutableArray arrayWithCapacity: str.length];
+//    
+//    NSDictionary *countDict = [NSDictionary dictionaryWithDictionary: mutDict];
+//    [self generatePermutationAndPrintPermutationsOfArray: [NSArray arrayWithArray:mutArray] withCountsDict:countDict andResultsArray: results workingDict:countDict.copy];
+//}
+//
+//+ (void)generatePermutationAndPrintPermutationsOfArray:(NSArray<NSString *> *)alphabetArray withCountsDict:(NSDictionary<NSString *, NSNumber *> *)countDict andResultsArray: (NSMutableArray<NSString *> *)results workingDict:(NSDictionary<NSString *, NSNumber *> *)originalCountDict {
+//    
+//    NSUInteger idx = [self indexOfFirstLeftElementInArray:alphabetArray withCountGreaterThanZeroInReferenceToDict:countDict];
+//    
+//    //Base Condition
+//    if (idx == NSNotFound) {
+//        NSLog(@"%@", results);//[self printArray: results];
+//        return
+//    }
+//    
+//    [self addObjectAtIndex:idx inArray: results];
+//    countDict[alphabetArray[idx]] = @(countDict[alphabetArray[idx]].integerValue - 1);
+//    
+//    [self generatePermutationAndPrintPermutationsOfArray:alphabetArray withCountsDict:countDict andResultsArray:results workingDict:originalCountDict];
+//    
+//    
+//}
+//
+//+ (NSUInteger)indexOfFirstLeftElementInArray:(NSArray<NSString *> *)array withCountGreaterThanZeroInReferenceToDict:(NSDictionary<NSString *, NSNumber *> *)countDict {
+//    for (NSUInteger i = 0; i < array.count; ++i) {
+//        if (countDict[array[i]].integerValue > 0) {
+//            return i;
+//        }
+//    }
+//    return NSNotFound;
+//}
+
++ (BOOL)isThereATripletInArray:(NSArray<NSNumber *> *)arr withSum:(NSNumber *)sum {
+    NSMutableArray<NSNumber *> *sortedArray = [arr sortedArrayUsingComparator:^NSComparisonResult(NSNumber   * _Nonnull obj1, NSNumber   * _Nonnull obj2) {
+        return [obj1 compare:obj2];
+    }].mutableCopy;
+    
+    BOOL doesTripletExist = NO;
+    for (NSUInteger i = 0; i < sortedArray.count; ++i) {
+        NSNumber *temp = sortedArray[i];
+        [sortedArray removeObject:temp];
+        doesTripletExist = [self isTherePairInArray:sortedArray  withSum:@(sum.integerValue - temp.integerValue)];
+        if (doesTripletExist) {
+            return YES;
+        }
+        [sortedArray insertObject:temp atIndex:i];
+    }
+    return NO;
+}
+
++ (BOOL)isTherePairInArray:(NSArray<NSNumber *> *)arr withSum:(NSNumber *)sum {
+    NSArray<NSNumber *> *sortedArray = [arr sortedArrayUsingComparator:^NSComparisonResult(NSNumber   * _Nonnull obj1, NSNumber   * _Nonnull obj2) {
+        return [obj1 compare:obj2];
+    }];
+    
+    NSUInteger leftIndex = 0;
+    NSUInteger rightIndex = arr.count - 1;
+    
+    while (leftIndex < rightIndex ) {
+        if ([sortedArray[leftIndex] integerValue] + [sortedArray[rightIndex] integerValue] < [sum integerValue]) {
+            leftIndex++;
+        }
+        else if([sortedArray[leftIndex] integerValue] + [sortedArray[rightIndex] integerValue] > [sum integerValue]){
+            rightIndex--;
+        }
+        else {
+            NSLog(@"Pair with sum %@ is (%@,%@)", sum, sortedArray[leftIndex], sortedArray[rightIndex]);
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
++ (NSArray<NSString *> *)permutationsOfString:(NSString *)str basedOn:(NSDictionary<NSString *, NSArray<NSString *> *> *)teleDict {
+    
+    NSMutableString *convertToNum = @"".mutableCopy;
+    
+    for(NSUInteger i = 0; i < str.length; ++i) {
+        
+        unichar letterChar = [str characterAtIndex:i];
+        NSString *letter = [NSString stringWithCharacters:&letterChar length:1];
+        if (teleDict[letter]) {
+            [convertToNum appendString:letter];
+            continue;
+        }
+        
+        for (NSString *key in teleDict) {
+            
+            if ([teleDict[key] containsObject: letter]) {
+                [convertToNum appendString:key];
+                break;
+            }
+        }
+    }
+    
+    // Now you have converted Num
+    return [self permutationsOfNumberString:[NSString stringWithString:convertToNum] basedOn:teleDict];
+}
+
++ (NSArray<NSString *> *)permutationsOfNumberString:(NSString *)str basedOn:(NSDictionary<NSString *, NSArray<NSString *> *> *)teleDict {
+
+    if (str.length == 0) {
+        return @[];
+    }
+    
+    if (str.length == 1) {
+        NSString *key = [str substringToIndex:1];
+        NSMutableArray<NSString *> *mutArray = teleDict[key].mutableCopy;
+        [mutArray addObject:key];
+        return mutArray;
+    }
+    
+    NSString *subString = [str substringToIndex:str.length - 1];
+    
+    NSArray<NSString *> *subStringPermutaions = [self permutationsOfNumberString:subString basedOn:teleDict];
+    NSString *lastLetter = [str substringWithRange:NSMakeRange(str.length - 1, 1)];
+    
+    NSMutableArray<NSString *> *mutArray = @[].mutableCopy;
+    
+    NSArray *possibleLettersForLastLetter = [teleDict[lastLetter] arrayByAddingObjectsFromArray:@[lastLetter]];
+    
+    for (NSString *equivalent in possibleLettersForLastLetter) {
+        for (NSString *permutation in subStringPermutaions) {
+            
+            NSString *temp = [permutation stringByAppendingString:equivalent];
+            [mutArray addObject:temp];
+        }
+    }
+    
+    return [NSArray arrayWithArray:mutArray];
+}
+
 + (NSUInteger)numberOfSetBits:(NSUInteger)num {
     
     NSUInteger numOfBits = ceil(log(num)) + 1;

@@ -20,18 +20,30 @@
 #import "DPAlgo.h"
 #import "GraphEdge.h"
 #import "GeneralAlgorithms.h"
+#import "DispatchAfterWithCancel.h"
 
 @interface ViewController ()
 
 @property (copy, nonatomic) void(^testBlock)();
 @property (strong, nonatomic) NSString *viewControllerString;
-
+@property (strong, nonatomic) dispatch_after_cancel_t cancellableBlock;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    dispatch_after_cancel_t block = dispatch_after_cancellable(3, ^{
+        NSLog(@"Hello world!");
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSLog(@"Canceling block early");
+        cancel_block(block);
+    });
+    
     self.viewControllerString = @"My string";
     NSMutableString *tString = @"local String".mutableCopy;
     self.testBlock = ^{
@@ -315,6 +327,8 @@
     [trie insertObject:@"abe"];
     [trie insertObject:@"ab"];
     [trie insertObject:@"a"];
+    [trie insertObject:@"bat"];
+
 
     
     NSString *stringQuery = @"b";
@@ -329,7 +343,7 @@
     
     Log(@"2 Possible Strings From Trie for query = %@ array = %@", @"b", [trie prefixSearch:@"a"]);
     
-    Log(@"GREP c.sdt is %@", [trie grepWord:@"c.sdt"]);
+    Log(@"GREP c.t is %@", [trie grepWord:@"..."]);
     
     NSArray *nthSmallestArray = @[@(3), @(16), @(1), @(20), @(45), @(0), @(23)];
     NSNumber *num = [Sorting nthSmallestNumberinArray:@[@(3), @(16), @(1), @(20), @(45), @(0), @(23)] n: 1];
@@ -451,9 +465,48 @@
     Log("Binary Representation %@", binary);
     
     NSString *string = @"Housing";
-    NSString *pattern = @"H2s5";
+    NSString *pattern = @"7";
     BOOL isPatternMatached = [GeneralAlgorithms checkPatternOnString:string pattern:pattern];
     Log("Pattern Matched on String = %@, pattern = %@ Result = %d", string, pattern, isPatternMatached);
+    
+    NSDictionary<NSString *, NSArray<NSString *> *> *teleDict =
+    @{
+      @"0" : @[],
+      @"1" : @[],
+      @"2" : @[@"a", @"b", @"c"],
+      @"3" : @[@"d", @"e", @"f"],
+      @"4" : @[@"g", @"h", @"i"],
+      @"5" : @[@"j", @"k", @"l"],
+      @"6" : @[@"m", @"n", @"o"],
+      @"7" : @[@"p", @"q", @"r", @"s"],
+      @"8" : @[@"t", @"u", @"v"],
+      @"9" : @[@"w", @"x", @"y", @"z"]
+      };
+    
+    NSArray *permutedTeleArray = [GeneralAlgorithms permutationsOfString:@"fb1" basedOn:teleDict];
+    Log(@"PermutedTeleArray: %@", permutedTeleArray);
+    
+    
+    dispatch_source_t source = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_ADD, 0, 0, dispatch_get_main_queue());
+    
+    dispatch_source_set_event_handler(source, ^{
+        NSLog(@"%lu", dispatch_source_get_data(source));
+    });
+    dispatch_resume(source);
+    
+    dispatch_apply(4, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(size_t index) {
+        // do some work on data at index
+        NSLog(@"Dispatch Apply %zu", index);
+        dispatch_source_merge_data(source, 1);
+    });
+    NSLog(@"After Dispatch Apply");
+//    -6 -5 -3 -2 2 3 4
+    
+  BOOL isThereAPair = [GeneralAlgorithms isTherePairInArray:@[@(-2), @(2), @(-6), @(-3), @(-5), @(4), @(3)] withSum:@(5)];
+    
+    BOOL isThereTriplet = [GeneralAlgorithms isThereATripletInArray:@[@(-2), @(1), @(-6), @(-3), @(-5), @(1), @(3)] withSum: @(0)];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

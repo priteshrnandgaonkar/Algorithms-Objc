@@ -10,6 +10,7 @@
 		2125B9F71DD32DCD00BF73D5 /* GeneralAlgorithms.m in Sources */ = {isa = PBXBuildFile; fileRef = 2125B9F61DD32DCD00BF73D5 /* GeneralAlgorithms.m */; };
 		214925B21DCE275200C7BEC1 /* DPAlgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 214925B11DCE275200C7BEC1 /* DPAlgo.m */; };
 		215463CF1DCF650500569563 /* GraphEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = 215463CE1DCF650500569563 /* GraphEdge.m */; };
+		2183A57F1E06BD630026B694 /* SinglyLinkedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2183A57E1E06BD630026B694 /* SinglyLinkedNode.m */; };
 		CA0DC0AA1DA670C5008E5FA3 /* LinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0A91DA670C5008E5FA3 /* LinkedList.m */; };
 		CA0DC0AD1DA67AC6008E5FA3 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0AC1DA67AC6008E5FA3 /* Node.m */; };
 		CA0DC0B11DA689FC008E5FA3 /* LinkedListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA0DC0B01DA689FC008E5FA3 /* LinkedListTests.m */; };
@@ -67,6 +68,9 @@
 		214925B11DCE275200C7BEC1 /* DPAlgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPAlgo.m; path = General/DynamicProgramming/DPAlgo.m; sourceTree = "<group>"; };
 		215463CD1DCF650500569563 /* GraphEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphEdge.h; path = Graph/GraphEdge.h; sourceTree = "<group>"; };
 		215463CE1DCF650500569563 /* GraphEdge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphEdge.m; path = Graph/GraphEdge.m; sourceTree = "<group>"; };
+		2183A57D1E06BD630026B694 /* SinglyLinkedNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinglyLinkedNode.h; sourceTree = "<group>"; };
+		2183A57E1E06BD630026B694 /* SinglyLinkedNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinglyLinkedNode.m; sourceTree = "<group>"; };
+		21B4F8CF1E141D2B00AD13E0 /* DispatchAfterWithCancel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DispatchAfterWithCancel.h; sourceTree = "<group>"; };
 		CA0DC0A81DA670C5008E5FA3 /* LinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinkedList.h; path = Algorithms/LinkedList.h; sourceTree = "<group>"; };
 		CA0DC0A91DA670C5008E5FA3 /* LinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinkedList.m; path = Algorithms/LinkedList.m; sourceTree = "<group>"; };
 		CA0DC0AB1DA67AC6008E5FA3 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 				CA0DC0AC1DA67AC6008E5FA3 /* Node.m */,
 				CA0DC0B21DA6A272008E5FA3 /* SentinelLinkedList.h */,
 				CA0DC0B31DA6A272008E5FA3 /* SentinelLinkedList.m */,
+				2183A57D1E06BD630026B694 /* SinglyLinkedNode.h */,
+				2183A57E1E06BD630026B694 /* SinglyLinkedNode.m */,
 			);
 			name = LinkList;
 			path = ..;
@@ -360,6 +366,7 @@
 				CAE21BCD1D9E6656004E5763 /* ViewController.m */,
 				CAE977F81DC504D900703A83 /* PNTableViewController.h */,
 				CAE977F91DC504D900703A83 /* PNTableViewController.m */,
+				21B4F8CF1E141D2B00AD13E0 /* DispatchAfterWithCancel.h */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -574,6 +581,7 @@
 				CAFB47A31DBE69F000C888BF /* RBLNode.m in Sources */,
 				214925B21DCE275200C7BEC1 /* DPAlgo.m in Sources */,
 				CA0DC0AD1DA67AC6008E5FA3 /* Node.m in Sources */,
+				2183A57F1E06BD630026B694 /* SinglyLinkedNode.m in Sources */,
 				CAE21BFB1D9E66A7004E5763 /* Sorting.m in Sources */,
 				CAFF799B1DBB653A002CFAD3 /* GraphAlgorithm.m in Sources */,
 				CAE21BC81D9E6656004E5763 /* main.m in Sources */,

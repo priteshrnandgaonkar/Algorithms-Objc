@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SinglyLinkedNode.h"
+
 @interface PNInterval: NSObject
 
 @property (nonatomic, strong) NSNumber *start;
@@ -27,5 +29,16 @@
 
 + (NSArray<NSNumber *> *)binaryRepresentationOfNumber:(NSNumber *)num;
 
+// If String is "Housing" then the possible pattern for it would be "H3i2" or "H6" or "7"
 + (BOOL)checkPatternOnString:(NSString *)str pattern:(NSString *)pattern;
+
++ (NSArray<NSString *> *)permutationsOfString:(NSString *)str basedOn:(NSDictionary<NSString *, NSArray<NSString *> *> *)teleDict;
+
+//Complexity is O(nLogN)
++ (BOOL)isTherePairInArray:(NSArray<NSNumber *> *)arr withSum:(NSNumber *)sum;
+
++ (BOOL)isThereATripletInArray:(NSArray<NSNumber *> *)arr withSum:(NSNumber *)sum;
+
+//+ (void)permuteString:(NSString *)str;
+
 @end

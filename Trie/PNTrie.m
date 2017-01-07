@@ -241,8 +241,11 @@
 - (NSArray<NSString *> *)grepWord:(NSString *)query node:(PNTrieNode *)node {
     
     //Base condition when query length is 1-- remaining
-    if (query.length == 0) {
+    if (node.isEndOfObject && query.length == 0) {
         return @[];
+    }
+    else if (!node.isEndOfObject && query.length == 0) {
+        return nil;
     }
     
     NSString *queryChar = [NSString stringWithFormat:@"%C", [query characterAtIndex:0]];
@@ -266,7 +269,7 @@
         for (NSString *key in node.childrens.allKeys) {
             
             arrayFromChildrens = [self grepWord:[query substringFromIndex:1] node: node.childrens[key]];
-            if (arrayFromChildrens) {
+            if (!arrayFromChildrens) {
                 continue;
             }
             [mutArray addObjectsFromArray:[self preAppendString:key inArray:arrayFromChildrens]];
